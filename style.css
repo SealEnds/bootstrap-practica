@@ -1,0 +1,466 @@
+  /* Propiedades generales -------------------------------------------------------------------------------*/
+  * {
+    margin: 0;
+    padding: 0;
+}
+
+.bg-dark{
+    /* --bs-bg-opacity: 1; */
+}
+
+/* Fuentes */
+@font-face{
+    font-family: "sacramento";
+    src: url("assets/fonts/sacramento.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: "DSGabriele";
+    src: url("assets/fonts/DSGabriele.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: "librecaslondisplay";
+    src: url("assets/fonts/librecaslondisplay.ttf") format("truetype"),
+    url("assets/fonts/librecaslondisplay.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+.sacramento{
+    font-family: "sacramento";
+    font-size: 30px;
+    font-weight: bold;
+}
+.fs-10{
+    font-size: 50px;
+}
+.gabriele{
+    font-family: "DSGabriele";
+}
+.caslon{
+    font-family: librecaslondisplay;
+}
+body {
+    /* background-color: #d5bdaf; */
+    background-color: rgb( 245,235,224 );
+    /* background-color: #6f424e; */
+    /* #ffeee2 -> crema naranja, no para body sino para sustituir f5ebe0
+    #392e37 -> casi negro
+    #6f424e -> uva
+    */
+}
+
+main{
+    font-family: "caslon";
+}
+
+.button {
+    background-color: rgb(0, 0, 0);
+}
+
+.button:hover {
+    background-color: rgb(204, 204, 167);
+}
+
+.hola {
+    /* background-color: #fecdaa; */
+    /* background-color: #fff6f0; */
+    background-color: #FFFEF8;
+}
+
+li {
+    list-style: none;
+    text-align: center;
+}
+
+a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+
+input[type="checkbox"]{
+    border-color: #f07167 !important;
+}
+.form-control:focus, input[type="checkbox"]:focus {
+    border-color: #f07167 !important;
+    box-shadow: 0 0 0 0.2rem #ea9f99;
+    transition: all 300ms;
+}
+.color-interaccion-texto{
+    color: #f07167;
+}
+.color-interaccion {
+    background-color: #f07167;
+}
+
+.color-interaccion:hover {
+    background-color: #f07167;
+    background-image: radial-gradient( #f07167, #ea9f99);
+    color: white;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.boton:hover{
+    background-color: #f07167 !important;
+    color: #f8f5f2 !important;
+    transition: all 200ms;
+}
+
+.sombras{
+    background-color: #f07167;
+    box-shadow: 1px 1px 1px rgb(66, 18, 18),  -1px 1px 1px rgb(66, 18, 18), 3px 3px 3px #ea9f99, 1px 1px 2px #f0dad2;
+    color: white
+}
+.sombras:hover{
+    box-shadow: -1px -1px 1px rgb(211, 136, 70) inset;
+    border: 1px solid black;
+    color: white
+}
+
+/* sobreescribir colo de checkbox */
+input[type=checkbox]:checked {
+    background-color: #f07167 !important;
+}
+
+.underline:hover{
+    text-decoration: underline;
+}
+/* 
+.fit-content{
+    width: fit-content;
+} */
+
+/* div {
+    border: 1px solid salmon;
+} */
+/* Inicio */
+.inicio-noticias{
+    background-image: url('assets/img/novedades.jpg');
+    background-size: cover;
+    background-position: center;
+}
+/* menú desplegable -------------------------------------------------------------------------- */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    /*para ponerse por encima*/
+    box-shadow: 0px 2px 2px gray;
+    transition: all 1000ms;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    /* position: absolute; 
+    width: 100%; */
+}
+
+header > nav a:hover{
+    color: #f07167 !important;
+}
+header > nav .efecto-hover:hover {
+    background-color: #ffffff;
+    border-radius: 100%;
+}
+
+main{
+    margin-top: 105px;
+}
+@media(min-width: 768px) {
+    main{ margin-top: 113px;}
+}
+
+.boton-buscar:hover{
+    background-color: #f07167 !important;
+}
+/* menú inicio ----------------------------------------------------------------------------------*/
+
+/* carrousel ----------------------------------------------------------------------------------- */
+.carousel {
+    background-color: #fff7f2;
+}
+
+.carousel-control-prev:hover {
+    background-color: #f07167;
+}
+
+.carousel-control-next:hover {
+    background-color: #f07167;
+}
+
+.carousel-inner {
+    width: 70%;
+}
+
+.unset-top {
+    top: unset;
+}
+
+/* Cambiar color de las flechas para pasar de página
+https://stackoverflow.com/questions/46249541/change-arrow-colors-in-bootstraps-carousel*/
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+.carousel-control-prev:hover .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+.carousel-control-next:hover .carousel-control-next-icon {
+    background-image:  url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+/*necesario para que el activo se vea arriba*/
+/*flex-sm-row carousel-item-start -> cambiando start*/
+/* flex-sm-row carousel-item-next carousel-item-start -> cambiando next */
+/* active -> cambiado */
+.active {
+    display: block;
+    z-index: 2;
+}
+
+/* .carousel-item-start {
+    display: none;
+} */
+
+/* .carousel-item-prev {
+    display: none;
+    z-index: 1;
+} */
+.carousel-item-end {
+    /* para que al retroceder no se vean otras imágenes*/
+    z-index: 1;
+}
+
+.carousel-item-next {
+    /* para que al avanzar no se vean otras imágenes*/
+    z-index: 1;
+}
+
+
+/* en modo pequeño del carousel, fondo por encima de las imágenes de detrás*/
+/* .carousel-inner{
+    z-index: 1;
+} */
+
+.img1 {
+    background-image: url('assets/img/anunciada.jpg');
+}
+
+.img2 {
+    background-image: url('assets/img/conde.jpg');
+}
+
+.img3 {
+    background-image: url('assets/img/dune.jpg');
+}
+
+.img4 {
+    background-image: url('assets/img/edipo.jpg');
+}
+
+.img5 {
+    background-image: url('assets/img/gita.jpg');
+}
+
+.img6 {
+    background-image: url('assets/img/iliada.jpg');
+}
+
+.img7 {
+    background-image: url('assets/img/luna.jpg');
+}
+
+.img8 {
+    background-image: url('assets/img/manantial.jpg');
+}
+
+.img9 {
+    background-image: url('assets/img/noches.jpg');
+}
+
+.img10 {
+    background-image: url('assets/img/viaje.jpg');
+}
+
+.img11 {
+    background-image: url('assets/img/hazlitt.jpg');
+}
+
+.img12 {
+    background-image: url('assets/img/hino.jpg');
+}
+
+.fondo-madera{
+    background-image: url('assets/img/fondo-madera.jpg');
+}
+
+.img {
+    width: 33.33%;
+    aspect-ratio: 2/3;
+    background-size: contain;
+    background-position: center;
+}
+
+.una-img {
+    aspect-ratio: 2/3;
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+}
+
+
+
+/* tarjetas cards de productos -------------------------------------------------------------------------------*/
+.img-producto {
+    width: 100%;
+    aspect-ratio: 2/3;
+    align-self: center;
+
+}
+/* bordes para las tarjetas, el problema es que bootstrap no tiene propiedad para cambiar el borde en función del tamaño*/
+.border-card-img {
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    box-shadow: 1px 0px 1px rgb(198, 21, 21);
+}
+
+.radius-card-img{
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+
+.border-card-info {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    box-shadow: 1px 2px 1px rgb(240, 25, 25), 1px 0px 1px rgb(255, 47, 47);
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+
+.card-body{
+    min-height: 185px;
+}
+
+@media(min-width: 990px) {
+    .border-card-img {
+        border-top: 2px solid black;
+        border-left: 2px solid black;
+        border-bottom: 2px solid black;
+        box-shadow: 0px 1px 1px rgb(198, 21, 21);
+    }
+    .radius-card-img{
+        border-top-left-radius: 5%;
+        border-top-right-radius: 0%;
+        border-bottom-left-radius: 5%;
+        border-bottom-right-radius: 0%;
+    }
+
+    .border-card-info {
+        border-top: 2px solid black;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+        box-shadow: 0px 1px 1px rgb(240, 25, 25), 1px 0px 1px rgb(255, 47, 47);
+        border-top-right-radius: 5%;
+        border-bottom-right-radius: 5%;
+        border-bottom-left-radius: 0%;
+        border-top-left-radius: 0%;
+    }
+
+}
+
+/* offcanvas inicio sesión ------------------------------------------------------------------------------------*/
+#btn-inicio-sesion {
+    font-size: 18px;
+    color: #f07167;
+}
+
+#btn-crear-cuenta {
+    font-size: 12px;
+}
+
+.btn-close:active, .btn-close:focus{
+    box-shadow: 0 0 0 0.2rem #ea9f99;
+}
+
+
+/* Listado de categorías ------------------------------------------------------------------------------------*/
+#div-categorias {
+    background-color: #fff7f2;
+}
+
+/* Información ------------------------------------------------------------------------------------------------*/
+.informacion {
+    background-color: #fff7f2;
+}
+
+.circulo-numeracion {
+    align-items: center;
+    justify-content: center;
+    background-color: #f07167;
+    color: #fff7f2;
+    font-size: 18px;
+    width: 10%;
+    min-width: 30px;
+    aspect-ratio: 1/1;
+}
+
+/* Tiendas _________________________________________________________________________________________________________*/
+.tienda-img{
+    max-height: 400px;
+}
+
+/* Sobre nosostros ------------------------------------------------------------------------------------------*/
+.img-circular{
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 999px;
+}
+.shadow-red{
+    box-shadow: 3px 3px 5px #f07067c4, 1px 1px 2px rgb(251, 179, 153),
+    -3px -3px 5px #f07067c4, -1px -1px 2px rgb(251, 179, 153),
+    -3px 3px 5px #f07067c4, -1px 1px 2px rgb(251, 179, 153), 
+    3px -3px 5px #f07067c4, 1px -1px 2px rgb(251, 179, 153);
+}
+
+/* Footer ---------------------------------------------------------------------------------------------------*/
+footer {
+    background-color: #2F2E2E;
+    color: white;
+}
+
+footer .mapa {
+    max-width: 400px;
+    aspect-ratio: 1/1;
+}
+
+footer #footer-menu  a:hover{
+    color: #f07167 !important;
+    text-decoration: underline;
+    transition: 200ms all;
+}
+footer #newsletter-div{
+    background-color: #FFFEF8 !important;
+    color: #2F2E2E;
+}
+
+footer #newsletter-input{
+    outline:none;
+    border: 1px solid #f07167;
+}
+
+footer #newsletter-button{
+    background-color: #f07167;
+    border: none;
+    color: white
+}

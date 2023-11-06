@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novelas Inolvidables</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        /*
+        color primario: #F5EBE0
+        color secundario: #3D3329
+        color terciario: #EDEDE9
+        Otros
+        #D6CCC2
+        #E3D5CA
+        #D5BDAF
+        */
+        window.addEventListener('load', () => {
+            function get(id) {
+                return document.getElementById(id);
+            }
+            let btn_inicio_sesion = get("btn-inicio-sesion");
+            let btn_crear_cuenta = get("btn-crear-cuenta");
+            let create_account_form = get("create-account-form");
+            let login_account_form = get("login-account-form");
+            btn_inicio_sesion.addEventListener('click', () => {
+                btn_inicio_sesion.style.color = "#f07167";
+                btn_inicio_sesion.style.fontSize = "18px";
+                btn_crear_cuenta.style.color = "black";
+                btn_crear_cuenta.style.fontSize = "12px";
+                // cambiar display flex del nodo padre (div) del padre (span)
+                btn_inicio_sesion.parentNode.parentNode.style.flexDirection = 'row';
+                // cambiar formulario
+                console.log(create_account_form, login_account_form);
+                create_account_form.setAttribute("class", "d-none");
+                login_account_form.setAttribute("class", "d-block");
+            });
+            btn_crear_cuenta.addEventListener('click', () => {
+                btn_inicio_sesion.style.color = "black";
+                btn_inicio_sesion.style.fontSize = "12px";
+                btn_crear_cuenta.style.color = "#f07167";
+                btn_crear_cuenta.style.fontSize = "18px";
+
+                btn_crear_cuenta.parentNode.parentNode.style.flexDirection = 'row-reverse';
+                console.log(create_account_form, login_account_form);
+                create_account_form.setAttribute("class", "d-block");
+                login_account_form.setAttribute("class", "d-none");
+            });
+
+            /* Para no enviar formulario si no se cumplen los requisitos y mostrar los colores https://getbootstrap.com/docs/5.0/forms/validation */
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- navbar -------------------------------------------------------------------------------------------------->
+    <header>
+        <nav class="navbar fixed-top navbar-expand-md hola">
+            <div class="w-100">
+                <div class="d-flex flex-row flex-wrap justify-content-between  ">
+                    <div class="text-center col-12 col-sm-6  ">
+                        <a class="navbar-brand sacramento " href="index.html"
+                            class="category-link">Novelas Inolvidables</a>
+                    </div>
+                    <div class="col-4 d-none d-sm-block text-center ">
+                        <a class="navbar-brand" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#f07167"
+                                class="bi bi-cart" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="container-fluid justify-content-around">
+
+                    <div class="collapse navbar-collapse border-top border-dark pt-2" id="navbarNav">
+                        <ul class="navbar-nav w-100 justify-content-evenly ">
+                            <li class="nav-item col-lg-3 col-md-4 col-12 d-flex d-sm-block">
+                                <form class="d-flex mt-sm-0 mt-2 col-sm-12 col-10" role="search">
+                                    <input class="form-control me-2" type="search" id="search" placeholder="Buscar"
+                                        aria-label="Search">
+                                    <button class="btn btn-outline-dark button text-white boton-buscar"
+                                        type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                        </svg></button>
+                                </form>
+                                <a class="navbar-brand d-inline-block d-sm-none col-2 text-end p-2" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#f07167"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg>
+                                </a>
+                            </li>
+
+                            <li class="nav-item"><a class="nav-link efecto-hover" href="productos.html"
+                                    class="category-link">Productos</a></li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link category-link efecto-hover" id="tienda-dropdown"
+                                    class="nav-link" data-bs-toggle="dropdown" aria-expanded="false">Tienda</a>
+                                <ul class="dropdown-menu" aria-labelledby="tienda-dropdown">
+                                    <li><a href="tiendas-fisicas.html" class="category-link color-interaccion-texto"
+                                            class="dropdown-item">Tiendas Físicas</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a href="tiendas-online.html" class="category-link color-interaccion-texto"
+                                            class="dropdown-item">Tiendas Online</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link efecto-hover" href="nosotros.html"
+                                    class="category-link">Sobre
+                                    nosotros</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link efecto-hover" href="contacto.html"
+                                    class="category-link">Contacto</a></li>
+                            <li class="nav-item"><a class="nav-link efecto-hover" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvas-right" aria-controls="offcanvasRight" href="#"
+                                    class="category-link" id="boton-iniciar-menu">Iniciar Sesión</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Botón de colapso para pantallas pequeñas -->
+                    <button class="navbar-toggler w-100 border-2 border-black " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon  "></span>
+                    </button>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1 class="col-12 text-center pt-5 pb-3 caslon">Productos por Categoría</h1>
+
+        <!-- populares -->
+        <!-- multi item carousel: multi-carousel; ds; usar cards -->
+        <div class="w-75 m-auto border-bottom border-dark d-flex flex-row flex-wrap justify-content-between">
+            <h2 class="gabriele" style="font-size: 40px">Clásicos</h2>
+            <p class="mb-0" style="font-size: 20px; height:100%; align-self: end;"><a href="#"
+                    class="color-interaccion-texto">Ver todos</a></p>
+        </div>
+        <!-- cards de productos ------------------------------------------------------------------------------------------>
+        <div class="d-flex mt-4 m-2 flex-row flex-wrap ">
+            <!-- producto 1 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4 " data-bs-toggle="modal"
+                data-bs-target="#modal-1">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/cien.jpg" class="img-fluid img-producto radius-card-img"
+                            alt="cien años de soledad">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">Cien Años de Soledad</h5>
+                                <p class="card-text">Gabriel García Márquez</p>
+                            </div>
+                            <div>
+                                <!-- iconos estrellas -->
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ventana Modal 1 -->
+            <div class="modal fade" id="modal-1" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl  h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">Cien Años de Soledad</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/cien.jpg" class="w-100" alt="cien años de soledad">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de CIEN AÑOS DE SOLEDAD
+                                    </p>
+                                    Señalada como «catedral gótica del lenguaje», este clásico del siglo XX es el
+                                    enorme y
+                                    espléndido tapiz de la saga de la familia Buendía, en la mítica aldea de
+                                    Macondo.
+                                    </p>
+                                    <p>
+                                        <span class="fst-italic ">UNO DE LOS 5 LIBROS MÁS IMPORTANTES DE LOS ÚLTIMOS 125
+                                            AÑOS"</span> - THE NEW YORK TIMES
+                                    </p>
+                                    <p>
+                                        Un referente imprescindible de la vida y la narrativa latinoamericana.
+                                    </p>
+                                    <p>
+                                        «Muchos años después, frente al pelotón de fusilamiento, el coronel Aureliano
+                                        Buendía había
+                                        de recordar aquella tarde remota en que su padre lo llevó a conocer el hielo.
+                                        Macondo era
+                                        entonces una aldea de veinte casas de barro y cañabrava construidas a la orilla
+                                        de
+                                        un río de
+                                        aguas diáfanas que se precipitaban por un lecho de piedras pulidas, blancas y
+                                        enormes como
+                                        huevos prehistóricos. El mundo era tan reciente, que muchas cosas carecían de
+                                        nombre, y para
+                                        mencionarlas había que señalarlas con el dedo».
+                                    </p>
+                                    <p>
+                                        Con estas palabras empieza la novela ya legendaria en los anales de la
+                                        literatura
+                                        universal,
+                                        una de las aventuras literarias más fascinantes de nuestro siglo. Millones de
+                                        ejemplares
+                                        deCien años de soledad leídos en todas las lenguas y el Premio Nobel de
+                                        Literatura
+                                        coronando
+                                        una obra que se había abierto paso «boca a boca» -como gusta decir al escritor-
+                                        son
+                                        la más
+                                        palpable demostración de que la aventura fabulosa de la familia Buendía-Iguarán,
+                                        con
+                                        sus
+                                        milagros, fantasías, obsesiones, tragedias, incestos, adulterios, rebeldías,
+                                        descubrimientos
+                                        y condenas, representaba al mismo tiempo el mito y la historia, la tragedia y el
+                                        amor del
+                                        mundo entero.
+                                    </p>
+                                    <p>
+                                        Pablo Neruda dijo...
+                                        <span class="fst-italic">«El Quijote de nuestro tiempo.»</span>
+                                    </p>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 2 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4" data-bs-toggle="modal"
+                data-bs-target="#modal-2">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/quijote.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">EL Quijote</h5>
+                                <p class="card-text">Miguel de Cervantes</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-2" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl  h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">El Ingeniso Hidalgo Don Quijote de la Mancha
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/quijote.jpg" class="w-100" alt="cien años de soledad">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de DON QUIJOTE DE LA MANCHA
+                                    </p>
+                                    <p>
+                                        Cervantes escribió el Quijote con la intención de parodiar los libros de
+                                        caballerías, que consideraba simples sartas de disparates desprovistas de todo
+                                        interés. Para conseguir su propósito, ideó la historia de un hidalgo aldeano que
+                                        enloquece de tanto leer las inverosímiles hazañas de héroes como Amadís y
+                                        Palmerín, y que, al igual que los caballeros andantes, se echa a los caminos con
+                                        el noble afán de ayudar a los necesitados. En compañía del afable y crédulo
+                                        Sancho Panza, don Quijote participa en una serie de delirantes aventuras que
+                                        provocan la hilaridad del lector. Sin embargo, el Quijote es mucho más que una
+                                        simple novela humorística, pues constituye una lección magistral sobre la
+                                        grandeza y la miseria de la condición humana. De la mano de un héroe que obra
+                                        como un loco pero que a menudo razona con admirable cordura, Cervantes nos
+                                        revela la importancia de los ideales, nos ilustra sobre el valor de la libertad
+                                        y la justicia, nos advierte de que no siempre es fácil distinguir la realidad de
+                                        la apariencia y nos anima a creer en una literatura que, al tiempo que nos
+                                        distrae, nos enseña a vivir y nos ilumina el espíritu.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto"
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 3 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4 d-none d-sm-block"
+                data-bs-toggle="modal" data-bs-target="#modal-3">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/guerraypaz.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">Guerra y Paz</h5>
+                                <p class="card-text">Leo Tolstoi</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-3" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl  h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">Guerra y Paz</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/guerraypaz.jpg" class="w-100" alt="guerra y paz">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de GUERRA Y PAZ
+                                    </p>
+                                    <p>
+                                        De las suntuosas fiestas de la aristocracia de San Petersburgo y Moscú al frente
+                                        ruso donde las tropas luchan contra el ejército napoleónico, Guerra y paz nos
+                                        presenta un amplio fresco de la sociedad rusa del momento a través de las
+                                        vivencias de algunos miembros de varias familias rusas aristocráticas.
+                                        Considerada una de las obras cumbres de la historia de la literatura, la novela
+                                        no sólo plasma magistralmente una época irrepetible sino que aborda las
+                                        cuestiones esenciales de la condición humana, entre ellas, las consecuencias
+                                        devastadoras de la guerra y las irremediables transformaciones que sufren con
+                                        ella los individuos, las familias y la sociedad entera. Guerra y paz no ha
+                                        perdido un ápice de su actualidad y conserva la capacidad de deslumbrar a
+                                        cualquiera que se adentre en ella.
+                                    <p>
+                                        <span class="fst-italic ">«Hay que reconocer en Guerra y paz, la fuerza
+                                            sobrehumana, casi física del relato, la vivacidad de algunos pasajes que
+                                            impresionan la imaginación del lector con la agudeza y precisión casi
+                                            dolorosas de una luz repentina, demasiado potente.»</span> Eduardo Mendoza
+                                    </p>
+                                    <p>
+                                        <span class="fst-italic ">«Guerra y paz es uno de esos raros milagros que, de
+                                            siglo en siglo, ocurren en el universo de la literatura.»</span> Mario
+                                        Vargas Llosa
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 18px; font-weight: bold;">12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white "><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 4 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4 d-none d-xl-block  "
+                data-bs-toggle="modal" data-bs-target="#modal-4">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex ">
+                        <img src="assets/img/crimenycastigo.jpg" class="img-fluid img-producto radius-card-img"
+                            alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">Crimen y Castigo</h5>
+                                <p class="card-text">Fiódor Dostoyevki</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-4" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">Crimen y Castigo</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/crimenycastigo.jpg" class="w-100" alt="crimen y castigo">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de CRIMEN Y CASTIGO
+                                    </p>
+                                    <p>
+                                        Nadie ha retratado la psicología humana como lo hizo Fiódor Dostoyevski. Su
+                                        obra, fiel reflejo de una personalidad compleja y atormentada, marca una de las
+                                        cimas de la narrativa universal. Admirada por generaciones de lectores y
+                                        autores, Crimen y castigo narra el asesinato cometido por Rodión Raskólnikov, un
+                                        estudiante arrogante y endeudado cuyo nihilismo anticipa la literatura
+                                        existencialista. Su descenso a los infierno corre en paralelo al de la ciudad de
+                                        San Petersburgo, en plena decadencia, que Dostoyevski retrata con pulso firme y
+                                        una galería de personajes absolutamente memorables.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-75 m-auto border-bottom border-dark d-flex flex-row flex-wrap justify-content-between">
+            <h2 class="gabriele" style="font-size: 40px">Ciencia Ficción</h2>
+            <p class="mb-0" style="font-size: 20px; height:100%; align-self: end;"><a href="#"
+                    class="color-interaccion-texto">Ver todos</a></p>
+        </div>
+        <div class="d-flex mt-4 m-2 flex-row flex-wrap ">
+            <!-- producto 5 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4" data-bs-toggle="modal"
+                data-bs-target="#modal-5">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/dune.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">Dune</h5>
+                                <p class="card-text">Frank Herbert</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-5" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl  h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">Dune</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/dune.jpg" class="w-100" alt="dune">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de DUNE
+
+                                    </p>
+                                    <p>
+                                        En el desértico planeta Arrakis, el agua es el bien más preciado y llorar a los
+                                        muertos, el símbolo de máxima prodigalidad. Pero algo hace de Arrakis una pieza
+                                        estratégica para los intereses del Emperador, las Grandes Casas y la Cofradía,
+                                        los tres grandes poderes de la galaxia. Arrakis es el único origen conocido de
+                                        la melange, preciosa especia y uno de los bienes más codiciados del universo.
+                                    </p>
+                                    <p>
+                                        Al duque Leto Atreides se le asigna el gobierno de este mundo inhóspito,
+                                        habitado por los indómitos Fremen y monstruosos gusanos de arena de centenares
+                                        de metros de longitud. Sin embargo, cuando la familia es traicionada, su hijo y
+                                        heredero, Paul, emprenderá un viaje hacia un destino más grande del que jamás
+                                        hubiese podido soñar.
+                                    </p>
+                                    <p>
+                                        Mezcla fascinante de aventura, misticismo, intrigas políticas y ecologismo,Dune
+                                        se convirtió, desde el momento de su publicación, en un fenómeno de culto y en
+                                        la mayor epopeya de ciencia-ficción de todos los tiempos.
+                                    </p>
+                                    <p>
+                                        La crítica ha dicho...
+                                    </p>
+                                    <p>
+                                        <span class="fst-italic ">«No conozco nada comparable, excepto El Señor de los
+                                            Anillos.»</span>
+                                        Arthur C. Clarke
+                                    </p>
+                                    <p>
+                                        <span class="fst-italic ">«Es muy probable que Dune sea más vigente a día de hoy
+                                            que cuando fue salió a la
+                                            luz.»</span>
+                                        The NewYorker
+                                    </p>
+                                    <p>
+                                        <span class="fst-italic ">«Un fenómeno impresionante.»</span>
+                                        The Washington Post
+                                    </p>
+                                    <p>
+                                        <span class="fst-italic ">«Uno de los monumentos de la ciencia-ficción
+                                            moderna.»</span>
+                                        The ChicagoTribune
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 18px; font-weight: bold;">12,30€</p>
+                                <button type="button" class="btn color-interaccion"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 6 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4" data-bs-toggle="modal"
+                data-bs-target="#modal-6">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/fahrenheit.jpeg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">Fahrenheit 451</h5>
+                                <p class="card-text">Ray Bradbury</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-6" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">Fahrenheit 451</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/fahrenheit.jpeg" class="w-100" alt="Fahrenheit 451">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de FAHRENHEIT 451
+                                    </p>
+                                    <p>
+                                        El libro más emblemático de Bradbury llega a Minotauro Esenciales. Un clásico de
+                                        la literatura.
+                                    </p>
+                                    <p>
+                                        Fahrenheit 451: la temperatura a la que el papel se enciende y arde.
+                                        Guy Montag es un bombero y el trabajo de un bombero es quemar libros, que están
+                                        prohibidos porque son causa de discordia y sufrimiento.
+                                        El Sabueso Mecánico del Departamento de Incendios, armado con una letal
+                                        inyección hipodérmica, escoltado por helicópteros, está preparado para rastrear
+                                        a los disidentes que aún conservan y leen libros.
+                                        Como 1984, de George Orwell, como Un mundo feliz, de Aldous Huxley, Fahrenheit
+                                        451 describe una civilización occidental esclavizada por los medios, los
+                                        tranquilizantes y el conformismo.
+                                    </p>
+                                    <p>
+                                        La visión de Bradbury es asombrosamente profética: pantallas de televisión que
+                                        ocupan paredes y exhiben folletines interactivos; avenidas donde los coches
+                                        corren a 150 kilómetros por hora persiguiendo a peatones; una población que no
+                                        escucha otra cosa que una insípida corriente de música y noticias transmitidas
+                                        por unos diminutos auriculares insertados en las orejas.
+                                        <span class="fst-italic ">«Fahrenheit 451 es el más convincente de todos los
+                                            infiernos conformistas.»</span>
+                                        KINGSLEY AMIS
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 7 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4 d-none d-sm-block"
+                data-bs-toggle="modal" data-bs-target="#modal-7">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/luna.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">La Luna es una Cruel Amante</h5>
+                                <p class="card-text">Robert A. Heilein</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-7" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">La Luna es una Cruel Amante</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/luna.jpg" class="w-100" alt="La Luna es una Cruel Amante">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de LA LUNA ES UNA CRUEL AMANTE
+                                    </p>
+                                    <p>
+                                        Aunque sus abuelos fueron recluidos en su día en la colonia, Mannie nació libre
+                                        y eso supone una gran diferencia. Como contratista privado, hace negocios con la
+                                        Autoridad pero no figura en su nómina. El régimen de Luna es severo e injusto,
+                                        la revolución se masca en el ambiente y se habla incluso de derrocar a la odiada
+                                        Autoridad. Cuando Mannie ayuda a la preciosa Wyoming Knott a escapar de los
+                                        guardaespaldas del Guardián, se encuentra de alguna manera en el centro de una
+                                        rebelión sin esperanza. Aunque Mannie tiene un arma secreta: Mike es el
+                                        ordenador más inteligente de la colonia, está conectado a toda clase de equipos
+                                        útiles... Y Mannie es el mejor amigo de Mike.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 8 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4 d-none d-xl-block "
+                data-bs-toggle="modal" data-bs-target="#modal-8">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex ">
+                        <img src="assets/img/americangods.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">American Gods</h5>
+                                <p class="card-text">Neil Gaiman</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modal-8" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+            <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+            <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modal-label">American Gods</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="w-100 d-flex flex-row flex-wrap ">
+                            <div class="w-25">
+                                <img src="assets/img/americangods.jpg" class="w-100" alt="American Gods">
+                            </div>
+                            <div class="w-75 p-3">
+                                <p class="fw-bold ">
+                                    Sinopsis de AMERICAN GODS
+                                </p>
+                                <p>
+                                    Dioses antiguos, héroes mitológicos y figuras legendarias se dan cita en la obra
+                                    narrativa más importante del extraordinario Neil Gaiman.
+                                </p>
+                                <p>
+                                    <span class="fst-italic ">«Original, apasionante e infinitamente inventivo.»</span>
+                                    GEORGE R.R. MARTIN
+                                </p>
+                                <p>
+                                    Días antes de salir de prisión, la mujer de Sombra, Laura, muere en un misterioso
+                                    accidente de coche. Aturdido por el dolor, emprende el regreso a casa. En el avión,
+                                    se encontrará con el enigmático señor Miércoles, que dice ser un refugiado de una
+                                    guerra antigua, un dios y también el rey de América.
+                                </p>
+                                <p>
+                                    Juntos se embarcan en un viaje extraño a través de los Estados Unidos, mientras una
+                                    tormenta de dimensiones épicas amenaza con desencadenarse.
+                                </p>
+                                <p>
+                                    Poco a poco descubriremos que Miércoles es una encarnación de Odín y que está
+                                    reclutando viejos dioses, cuyos poderes han disminuido por el tiempo y la falta de
+                                    creyentes, para participar en una guerra contra los nuevos dioses: aquellos que
+                                    conforman la tecnología moderna.
+                                </p>
+                                <p>
+                                    Ganadora de los Premios Hugo, Locus y Bram Stoker.
+                                </p>
+                                <p>
+                                    La crítica ha dicho...
+                                    <span class="fst-italic ">«Si tenéis ocasión de conseguir la edición de Roca, no
+                                        dejéis pasar la oportunidad de leer los apéndices y epílogos al final.»</span>
+                                    El Biblionauta
+                                </p>
+                                <p>
+                                    <span class="fst-italic ">«Perfecto en todos los sentidos y una maravilla de la
+                                        literatura en estos tiempos, que merece ser experimentado por todos los tipos de
+                                        lectores.»</span> Ricardo Marín
+                                </p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex flex-row justify-content-between ">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <div class="d-flex flex-row">
+                            <p class="caslon color-interaccion-texto m-2 "
+                                style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                12,30€</p>
+                            <button type="button" class="btn color-interaccion text-white"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-cart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg><span class="p-2 ">Añadir al carrito</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-75 m-auto border-bottom border-dark d-flex flex-row flex-wrap justify-content-between">
+            <h2 class="gabriele" style="font-size: 40px">Histórica</h2>
+            <p class="mb-0" style="font-size: 20px; height:100%; align-self: end;"><a href="#"
+                    class="color-interaccion-texto">Ver todos</a></p>
+        </div>
+        <div class="d-flex mt-4 m-2 flex-row flex-wrap ">
+            <!-- producto 9 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4" data-bs-toggle="modal"
+                data-bs-target="#modal-9">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/alatriste.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">El Capitán Alatriste</h5>
+                                <p class="card-text">Arturo Pérez Reverte, Carlota Pérez Reverte</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-9" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">El Capitán Alatriste</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/alatriste.jpg" class="w-100" alt="El Capitán Alatriste">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de EL CAPITAN ALATRISTE
+                                    </p>
+                                    <p>
+                                        Acción, historia y aventura se dan cita como un torbellino en las inolvidables
+                                        páginas de esta primera novela de la serie «Las aventuras del capitán
+                                        Alatriste», que comienza cuando el valeroso protagonista acepta un peligroso
+                                        encargo...
+
+                                        «No era el hombre más honesto ni el más piadoso, pero era un hombre valiente.»
+
+                                        Con estas palabras empiezaEl capitán Alatriste, la historia de un soldado
+                                        veterano de los tercios de Flandes que malvive como espadachín a sueldo en el
+                                        Madrid del siglo XVII. Sus aventuras peligrosas y apasionantes nos sumergen sin
+                                        aliento en las intrigas de una España corrupta y en decadencia, las emboscadas
+                                        en callejones oscuros entre el brillo de dos aceros, las tabernas donde
+                                        Francisco de Quevedo compone sonetos entre pendencias y botellas de vino, o los
+                                        corrales de comedias donde las representaciones de Lope de Vega terminan a
+                                        cuchilladas. Todo ello de la mano de personajes entrañables y fascinantes: el
+                                        joven Íñigo Balboa, el implacable inquisidor fray Emilio Bocanegra, el peligroso
+                                        asesino Gualterio Malatesta, o el diabólico secretario del rey, Luis de
+                                        Alquézar.
+
+                                        La crítica ha dicho...
+                                        «Arturo Pérez-Reverte, entre cuyas obras anteriores cabe destacarLa Reina del
+                                        Sur, ha creado Alatriste con un afecto evidente. El autor comparte con el
+                                        espadachín un indudable talento.El capitán Alatriste está escrito con brillantez
+                                        y un contagioso entusiasmo hacia el género que intenta revivir...»
+                                        Janet Maslin,The New York Times
+
+                                        «[...]tenemos como resultado una novela fascinante, que agarra nada más empezar
+                                        y sujeta hasta su última página. [...]la novela me ha subyugado con tanta fuerza
+                                        que la vista se adelantaba al texto porque el corazón estaba en suspenso o se
+                                        aceleraba a causa de los azarosos sucesos que pasaban en el papel.»
+                                        Santos Sanz Villanueva,El Mundo
+
+                                        «Digámoslo claro: nunca se agradecerá lo bastante a Reverte haber hecho entrar a
+                                        tantos lectores en esa literatura y esa historia cautivándolos con unas
+                                        narraciones apasionantes y, por la fascinación que produce el héroe,
+                                        implicándolos como coprotagonistas.»
+                                        Francisco Rico
+
+                                        «El estilo recrea la lengua del Siglo de Oro, con su léxico, modismos y frases
+                                        hechas, numerosos versos e incluso algunas voces de germanía, todo ello bien
+                                        integrado en un texto de suma eficacia narrativa.»
+                                        Ángel Basanta
+
+                                        «Su sabiduría narrativa, tan bien construida siempre, tan exhaustivamente
+                                        detallada, documentada y estructurada, hasta el punto que, frente a todo ello,
+                                        la historia real resulta endeble y a veces hasta tópica.»
+                                        Rafael Conte
+
+                                        «Al capitán Alatriste le cabe el honor de ser una de esas criaturas de ficción
+                                        que han ingresado en el selecto club de los mitos literarios, aquellos
+                                        personajes que gozan en el imaginario colectivo de una personalidad propia y de
+                                        una vigencia intemporal. Todo un mérito, si tenemos en cuenta que a este club de
+                                        élite pertenece solo otra media docena de miembros españoles, nada menos que de
+                                        la influencia histórica y el prestigio cultural del Cid, la Celestina, don Juan
+                                        o don Quijote.»
+                                        Alberto Montaner
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 10 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4" data-bs-toggle="modal"
+                data-bs-target="#modal-10">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/follet.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">La Armadura de la Luz</h5>
+                                <p class="card-text">Ken Follet</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-10" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">La Armadura de la Luz</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/follet.jpg" class="w-100" alt="La Armadura de la Luz">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de LA ARMADURA DE LA LUZ
+                                    </p>
+                                    <p>
+                                        Vuelve el mejor Follett con la emocionante quinta entrega de la saga «Los
+                                        pilares de la Tierra».
+
+
+                                        El choque de progreso y tradición y una guerra que amenaza con engullir toda
+                                        Europa en la más ambiciosa y épica novela del maestro de la ficción histórica.
+
+
+                                        La revolución está en el aire
+
+                                        1792. Un gobierno tiránico está decidido a convertir Inglaterra en un poderoso
+                                        imperio comercial. Mientras, Napoleón Bonaparte comienza su ambicioso ascenso al
+                                        poder y, en medio de un gran descontento social, los vecinos de Francia se
+                                        mantienen en máxima alerta.
+
+
+                                        Kingsbridge se asoma al abismo
+
+                                        Las innovaciones industriales se imponen de manera implacable, sacudiendo las
+                                        vidas de los trabajadores de las prósperas fábricas textiles de Kingsbridge. Se
+                                        abre un mundo de nuevas y liberadoras oportunidades ligado, sin embargo, a la
+                                        crueldad más despiadada. La rápida modernización con sus flamantes pero
+                                        peligrosas maquinarias está dejando obsoletos muchos trabajos y desgarrando a
+                                        las familias.
+
+
+                                        Una nueva tiranía surge en el horizonte
+
+                                        Y a medida que el estallido de un conflicto internacional parece cada vez más
+                                        cerca, la historia de un pequeño grupo de personas de Kingsbridge —incluidos la
+                                        hilandera Sal Clitheroe, el tejedor David Shoveller y Kit, el ingenioso y
+                                        decidido hijo de Sal— se convertirá en el símbolo de la lucha de toda una
+                                        generación que desea progresar y pelea por un futuro sin opresión...
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 11 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4 d-none d-sm-block"
+                data-bs-toggle="modal" data-bs-target="#modal-11">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/italiano.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">El Italiano</h5>
+                                <p class="card-text">Arturo Pérez Reverte</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-11" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">El Italiano</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/italiano.jpg" class="w-100" alt="El Italiano">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de EL ITALIANO
+                                    </p>
+                                    <p>
+                                        «Nada traiciona, tanto tiempo después, la mujer que desde hace dos años vive
+                                        sola junto al mar con un perro y unos libros. Qué otra cosa, decide, sería el
+                                        impulso, o el deseo, de permanecer abrazada a ese hombre para siempre. Ignora
+                                        qué habrá en su cabeza dentro de un par de horas, cuando la claridad del día la
+                                        despeje del todo e ilumine con más crudeza su conciencia. Lo cierto esque en
+                                        este momento, sin duda alguna, desearía morir si él muriera».
+
+
+                                        En los años 1942 y 1943, durante la Segunda Guerra Mundial, buzos de combate
+                                        italianos hundieron o dañaron catorce barcos aliados en Gibraltar y la bahía de
+                                        Algeciras. En esta novela, inspirada en hechos reales, sólo algunos personajes y
+                                        situaciones son
+
+                                        imaginarios. Elena Arbués, una librera de veintisiete años, encuentra una
+                                        madrugada mientras pasea por la playa a uno de esos buzos, desvanecido entre la
+                                        arena y el agua. Al socorrerlo, la joven ignora que esa determinación cambiará
+                                        su vida y que el amor será sólo parte de una peligrosa aventura.
+
+                                        La crítica ha dicho:
+                                        «Pérez-Reverte logra una novela intensa, de emociones sofrenadas y virtudes
+                                        infrecuentes, incluida la virtud acaso controvertida del reconocimiento del
+                                        mérito, valor y nobleza de los enemigos».
+                                        Domingo Ródenas de Moya,Babelia
+
+                                        «El italiano es para mí la mejor novela de Arturo Pérez Reverte hasta el
+                                        momento. Todos sus capítulos huelen a limpio, al despertar de las mañanas de
+                                        verano, a croissant, al Floyd de las peluquerías de antes, a los bares a eso de
+                                        las nueve, recién barridos y fregados, cuando ya se les ha ido el olor de la
+                                        lejía. A aquellas montañas mágicas de las primeras excursiones colegiales. Su
+                                        prosa está atravesada por el temblor de la ilusión. [...] Leyéndolo he recordado
+                                        a Graham Greene, a Simenon y a Conrad, a Vittorio De Sica y a Rossellini».
+                                        José Luis Garci
+
+                                        «Un homenaje asombroso al Mediterráneo como patria, y al mármol y bronce de sus
+                                        dioses y sus héroes».
+                                        Raúl del Pozo
+
+                                        «Hay libros capaces de enclavijar al lector a la realidad mientras empujan a
+                                        adentrarse en lo más insólito del mundo. Porque la vida se concreta mejor en lo
+                                        pequeño.El italiano es uno de ellos: [...] un secreto guardado por las horas».
+                                        Antonio Lucas,El Mundo
+
+                                        «Pérez-Reverte en su mejor momento. Sus novelas trazan lazos de unión unas con
+                                        otras, hasta formar una urdimbre que es lo que los clásicos llamaban estilo, y
+                                        los modernos, mundo».
+                                        José María Pozuelo Yvancos, ABCultural
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 12 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4 d-none d-xl-block "
+                data-bs-toggle="modal" data-bs-target="#modal-12">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex ">
+                        <img src="assets/img/malditaroma.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">Maldita Roma</h5>
+                                <p class="card-text">Satiago Posteguillo</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-12" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">Madita Roma</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/malditaroma.jpg" class="w-100" alt="Madita Roma">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de MALDITA ROMA
+                                    </p>
+                                    <p>
+                                        CONTINÚA EL FENÓMENO DE ROMA SOY YO, LA NOVELA MÁS VENDIDA DE 2022.
+                                        Ningún escritor podría imaginar una vida como la de Julio César.
+                                        Sólo Santiago Posteguillo puede escribirla.
+                                        VUELVE EL AUTOR QUE NOS HACE VIVIR LA HISTORIA.
+                                        «Posteguillo aporta ritmo y rigurosidad al mito de Julio César».
+                                        El País
+                                        «El gran escritor español de novela histórica aborda al más genial de los
+                                        hombres».
+                                        El Mundo
+                                        Más de 300.000 ejemplares vendidos de Roma soy yo en España.
+                                        Más de 4.500.000 ejemplares vendidos de la obra de Santiago Posteguillo.
+                                        Tras el enorme éxito de Roma soy yo, la novela más vendida en España en 2022,
+                                        Santiago Posteguillo retoma su gran proyecto literario, narrarla vida de Julio
+                                        César, en la esperadísima segunda entrega de su saga dedicada al gran personaje
+                                        de la Roma clásica.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-75 m-auto border-bottom border-dark d-flex flex-row flex-wrap justify-content-between">
+            <h2 class="gabriele" style="font-size: 40px">Policíaca y suspense</h2>
+            <p class="mb-0" style="font-size: 20px; height:100%; align-self: end;"><a href="#"
+                    class="color-interaccion-texto">Ver todos</a></p>
+        </div>
+        <div class="d-flex mt-4 m-2 flex-row flex-wrap ">
+            <!-- producto 13 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4" data-bs-toggle="modal"
+                data-bs-target="#modal-13">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/todovuelve.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">Todo Vuelve</h5>
+                                <p class="card-text">Juan Gómez Jurado</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-13" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">Todo Vuelve</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/todovuelve.jpg" class="w-100" alt="Todo Vuelve">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de TODO VUELVE
+                                    </p>
+                                    <p>
+                                        UN PLAN IMPOSIBLE
+                                        Todo lo que Aura Reyes necesita es continuar con vida diez minutos más.
+                                        No es tarea fácil.
+                                        Las otras son cuatro, son más fuertes y ella —una fifigura acorralada en el
+                                        patio de la cárcel— nunca ha sabido defenderse demasiado bien.
+                                        O tal vez sí.
+                                        UNA HUIDA SIN TREGUA
+                                        Porque Aura tiene que recuperar a sus hijas. También a sus amigas.
+                                        Y por eso ha trazado un plan que arranca dentro de diez minutos.
+                                        Así que no.
+                                        No tiene ninguna intención de morir hoy.
+                                        DEJARSE ATRAPAR NO ES UNA OPCIÓN
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 14 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4" data-bs-toggle="modal"
+                data-bs-target="#modal-14">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/asistenta.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">La Asistenta</h5>
+                                <p class="card-text">Freida McFadden</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-14" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">La Asistenta</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/asistenta.jpg" class="w-100" alt="La Asistenta">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de <span class="text-uppercase ">La Asistenta</span>
+                                    </p>
+                                    <p>
+                                        El best seller internacional que está arrasando, por la autora más viral del
+                                        momento.
+                                        Un thriller psicológico absolutamente adictivo que los lectores de La mujer en
+                                        la ventana, La pareja de al lado y La chica del tren no se querrán perder.
+                                        Todos los días friego la preciosa casa de los Winchester de arriba abajo. Recojo
+                                        a su hija del colegio y preparo deliciosas comidas para toda la familia antes de
+                                        subir a cenar sola en mi minúscula habitación del piso superior.
+                                        Intento no prestar atención a Nina cuando lo ensucia todo simplemente para ver
+                                        cómo lo limpio. A las extrañas mentiras que cuenta sobre su propia hija. A su
+                                        marido, que cada día parece más abatido. Pero cuando miro a Andrew a los ojos,
+                                        castaños, encantadores y llenos de dolor, no me resulta difícil imaginar cómo
+                                        sería vivir en la piel de Nina. El gran vestidor, el coche de lujo, el esposo
+                                        perfecto.
+                                        Hasta que un día no me resisto a probarme uno de sus maravillosos vestidos
+                                        blancos. Solo quiero saber que se siente. Pero ella pronto lo descubre, y cuando
+                                        me doy cuenta de que la puerta de mi habitación solo se cierra por fuera ya es
+                                        demasiado tarde.
+                                        Algo me reconforta: los Winchester no saben quien soy en realidad.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 15 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4 d-none d-sm-block"
+                data-bs-toggle="modal" data-bs-target="#modal-15">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex">
+                        <img src="assets/img/reinaroja.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">Reina Roja</h5>
+                                <p class="card-text">Juán Gómez Jurado</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-15" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">Reina Roja</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/reinaroja.jpg" class="w-100" alt="Reina Roja">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de <span class="text-uppercase ">Reina Roja</span>
+                                    </p>
+                                    <p>
+                                        El fenómeno que ha enganchado a más de 2.000.000 lectores.
+                                        Antonia Scott es especial. Muy especial.
+                                        No es policía ni criminalista. Nunca ha empuñado un arma ni llevado una placa,
+                                        y, sin embargo, ha resuelto decenas de crímenes.
+                                        Pero hace un tiempo que Antonia no sale de su ático de Lavapiés. Las cosas que
+                                        ha perdido le importan mucho más que las que esperan ahí fuera.
+                                        Tampoco recibe visitas. Por eso no le gusta nada, nada, cuando escucha unos
+                                        pasos desconocidos subiendo las escaleras hasta el último piso.
+                                        Sea quien sea, Antonia está segura de que viene a buscarla.
+                                        Y eso le gusta aún menos.
+                                        NO HAS LEÍDO NUNCA UN THRILLER COMO ESTE
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- producto 16 -->
+            <div class="card mb-4 col-xl-3 col-sm-4 col-6 m-auto pointer rounded-4 d-none d-xl-block "
+                data-bs-toggle="modal" data-bs-target="#modal-16">
+                <div class="row g-0 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex ">
+                        <img src="assets/img/todoarde.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body p-0 w-100 h-100 d-flex flex-column justify-content-around">
+                            <div class="p-3 pt-3 pt-lg-0 pb-0 ">
+                                <h5 class="card-title">Todo Arde</h5>
+                                <p class="card-text">Juán Gómez Jurado</p>
+                            </div>
+                            <div>
+                                <div class="w-75 text-end " data-mdb-toggle="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f07167" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                      </svg>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                      </svg>
+                                      <p>12 reviews</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal-16" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+                <!-- modal-dialog-scrollable para desplazarse por contenido extenso-->
+                <div class="modal-dialog modal-dialog-scrollable modal-xl h-75 ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modal-label">Todo Arde</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="w-100 d-flex flex-row flex-wrap ">
+                                <div class="w-25">
+                                    <img src="assets/img/todoarde.jpg" class="w-100" alt="Todo Arde">
+                                </div>
+                                <div class="w-75 p-3">
+                                    <p class="fw-bold ">
+                                        Sinopsis de <span class="text-uppercase ">Todo Arde</span>
+                                    </p>
+                                    <p>
+                                        3.000.000 de ejemplares vendidos
+                                        «Después de todo lo que ha pasado con la trilogía Reina Roja, sólo había una
+                                        forma de dar las gracias a mis lectores: intentar escribir una novela todavía
+                                        mejor.»
+                                        Juan Gómez-Jurado
+                                        Esta es la historia de tres mujeres que lo han perdido todo.
+                                        Incluso el miedo.
+                                        Por eso son tan peligrosas.
+                                        Esta es la historia de una venganza imposible, sin ninguna posibilidad de éxito.
+                                        Esta es la historia de tres mujeres que se atreven a hacer lo que los demás sólo
+                                        nos atrevemos a imaginar.
+                                        Algo muy poderoso está a punto de ocurrir.
+                                        Y nada volverá a ser igual.
+                                        SIEMPRE GANAN LOS MISMOS.
+                                        ES HORA DE CAMBIAR LAS REGLAS.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex flex-row justify-content-between ">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="d-flex flex-row">
+                                <p class="caslon color-interaccion-texto m-2 "
+                                    style="font-size: 20px; font-weight: bold; margin-right: 20px; margin-top: 10px;">
+                                    12,30€</p>
+                                <button type="button" class="btn color-interaccion text-white"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg><span class="p-2 ">Añadir al carrito</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- lista de categorías -->
+        <div class="w-100" id="div-categorias">
+
+            <div
+                class="col-11 col-sm-10 col-md-9 m-auto d-flex flex-wrap pt-3 pb-3 border-top border-2 border-black justify-content-center">
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Clásicos
+                    Universales</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Contemporánea</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Policíaca</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Thriller</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Aventuras</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Fantasía</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Ciencia
+                    Ficción</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Terror</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Romántica</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Histórica</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Infantil</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Juvenil</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Española</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Hispanoamericana</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Europea</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Asíatica</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Poesía</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Teatro</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Novela
+                    Gráfica</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Filosofía</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Economía</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Política</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Ciencias
+                    Naturales</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Tecnología</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Historia</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Humanidades</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Arte</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Estilo de
+                    Vida</a>
+            </div>
+        </div>
+
+        <h2 class="color-interaccion-texto text-center pointer mt-3 mb-5 link-underline-opacity-0 underline caslon">
+            Ver Todos los Productos
+        </h2>
+
+    </main>
+    <aside>
+        <!-- Offcanvas de inicio de sesión ---------------------------------------------------------------------------->
+        <!-- botón inicio sesión -->
+        <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-right"
+            aria-controls="offcanvasRight">Toggle right offcanvas</button> -->
+        <!-- offcanvas -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-right" aria-labelledby="offcanvas-right-label">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvas-right-label">ENTRAR</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <!-- inicio sesión: -->
+                    <!-- cambiar tipo de formulario-->
+                    <p class="d-flex flex-wrap justify-content-around"><span><button class="border-0 bg-white mb-5"
+                                id="btn-inicio-sesion">Iniciar
+                                sesión</button></span><span>&nbsp;/&nbsp;</span><span><button
+                                class="border-0 bg-white mb-5" id="btn-crear-cuenta">Crear una cuenta</button></span>
+                    </p>
+
+                    <div class="d-block " id="login-account-form">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-12 m-auto ">
+                                <label for="validationCustom01" class="form-label mt-2 mb-1">Email</label>
+                                <input type="email" class="form-control" id="validationCustom01" required>
+                                
+                            </div>
+
+                            <div class="col-md-12 m-auto ">
+                                <label for="validationCustom02" class="form-label mt-2 mb-1">Contraseña</label>
+                                <input type="password" class="form-control" id="validationCustom02" required>
+                                
+                            </div>
+                            <div class="col-12">
+                                <button class="btn color-interaccion text-white w-50 p-2 mt-1"
+                                    type="submit">Entrar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="d-none " id="create-account-form">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-6 m-auto ">
+                                <label for="validationCustom03" class="form-label mt-2 mb-1">Nombre</label>
+                                <input type="text" class="form-control" id="validationCustom03" required>
+                                
+                            </div>
+                            <div class="col-md-6 m-auto ">
+                                <label for="validationCustom04" class="form-label mt-2 mb-1">Apellidos</label>
+                                <input type="text" class="form-control" id="validationCustom04" required>
+                                
+                            </div>
+                            <div class="col-md-12 m-auto ">
+                                <label for="validationCustom05" class="form-label mt-2 mb-1">Email</label>
+                                <input type="email" class="form-control" id="validationCustom05" required>
+                                
+                            </div>
+
+                            <div class="col-md-12 m-auto ">
+                                <label for="validationCustom06" class="form-label mt-2 mb-1">Contraseña</label>
+                                <input type="password" class="form-control" id="validationCustom06" required>
+                                
+                            </div>
+                            <div class="col-md-12 m-auto ">
+                                <label for="validationCustom07" class="form-label mt-2 mb-1">Confirmar
+                                    Contraseña</label>
+                                <input type="password" class="form-control" id="validationCustom07" required>
+                                
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Recibir notificaciones sobre ofertas y noticias
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required
+                                        checked>
+                                    <label class="form-check-label" for="invalidCheck">
+                                        Agree to terms and conditions
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree before submitting.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn color-interaccion text-white w-50 p-2 mt-1"
+                                    type="submit">Registrarse</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </aside>
+
+    <footer class=" mt-4">
+        <nav class="nav nav-pills flex-column flex-sm-row align-content-center align-items-center">
+            <div class=" col-6 col-md-4 ">
+                <!-- list group flush para dejar solo el borde de debajo -->
+                <ul id="footer-menu">
+                    <li class="list-group-item"><a class="flex-sm-fill mt-2 text-sm-center nav-link text-white"
+                            href="index.html" aria-disabled="true">Inicio</a></li>
+                    <li class="list-group-item"> <a class="flex-sm-fill mt-2 text-sm-center nav-link text-white"
+                            aria-current="page" href="nosotros.html" id="aa">Sobre Nosotros</a></li>
+                    <li class="list-group-item"> <a class="flex-sm-fill mt-2 text-sm-center nav-link text-white"
+                            href="contacto.html">Contacto</a></li>
+                    <li class="list-group-item"><a class="flex-sm-fill mt-2 text-sm-center nav-link text-white"
+                            href="productos.html">Productos</a></li>
+                </ul>
+            </div>
+            <div class="pt-5 pb-5 col-10 col-sm-6 col-md-4 bg-white d-flex flex-column flex-wrap align-items-center "
+                id="newsletter-div">
+                <p class="text-black ">¡Suscríbete a nuestra Newsletter!</p>
+                <form class="d-flex">
+                    <input id="newsletter-input" type="email" name="newsletter" class="p-2 rounded-0 ">
+                    <submit id="newsletter-button" class="p-2 rounded-0 pointer">Unirse</submit>
+                </form>
+            </div>
+            <div class="col-10 col-sm-8 col-md-4 flex-sm-fill text-sm-center nav-link ">
+                <h4 class="col-12 text-white d-block d-md-none">¿Dónde estamos?</h4>
+                <iframe class="w-100 h-100 "
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1116.2567871247684!2d96.18301375538437!3d19.771067169817524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c8b96cc1f4e7f1%3A0x1d8ea57a73e33c39!2sPagoda%20Uppatasanti!5e0!3m2!1ses!2ses!4v1698047413022!5m2!1ses!2ses"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-12 text-center mt-5">
+                <p>&copy; Víctor Pérez Quesada 2023</p>
+            </div>
+        </nav>
+    </footer>
+
+
+
+
+</body>
+
+</html>
