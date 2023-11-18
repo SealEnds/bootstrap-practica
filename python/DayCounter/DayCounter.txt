@@ -1,3 +1,0 @@
-Diferencia de días: 731
-Diferencia de semanas: 104
-Primer año bisiesto con 31 de agosto que es domingo: 2020
