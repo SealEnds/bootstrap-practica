@@ -1,0 +1,251 @@
+<!-- 
+ 31/10/2023
+===============================================================================================================
+Consiste en crear una web la cual se despliegue por completo al pulsar un botón, empleando jQuery.
+
+Contendrá:
+Un cuadro de texto donde se introducirá un número que representa el año.
+Una vez introducido y validado el año, se presenta una lista desplegable (lo que es un select con options) con el nombre de todos los meses del año.
+Al seleccionar cualquiera de esos meses, se presenta otra lista desplegable con el día del mes y el nombre del día de la semana en español, separado por  espacio guión espacio (por ejemplo, 25 - miércoles)
+Una vez seleccionado el día, se muestra debajo una etiqueta que contiene  el año, el mes seleccionado y el día junto al nombre del día de la semana en español, en un tamaño h1.
+Evidentemente, no se puede hacer con el control de fechas, sino validando cada uno de los pasos
+Se deberán entregar todos los archivos para que el programa funcione correctamente.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+
+        // función para añadir varias clases a la vez con JQuery
+        function addClasses(VPQ_element, VPQ_classes) {
+            VPQ_classes.forEach(VPQ_class => {
+                VPQ_element.addClass(VPQ_class);
+            });
+        }
+
+        $(document).ready(function () {
+
+            // función para ocultar la perte del formulario
+            function hideForm(VPQ_this) {
+                $('p.delete').addClass('nodisplay');
+                VPQ_this.addClass('nodisplay'); // con function(), this se refiere al elemento que lanza el evento
+            }
+
+
+
+            let VPQ_body = $('body');
+            addClasses(VPQ_body, ["bg", "helvetica"]);
+
+            // boton para desplegar formulario
+            let VPQ_unfold = $("#unfold"); // botón primero
+            addClasses(VPQ_unfold, ["block", "center", "fs-large", "p", "mt", "bg-yg"]);
+
+            // div del formulario
+            let VPQ_form = $('#main');
+            addClasses(VPQ_form, ["flex-center", "center", "fs-large", "p", "mt", "text-white"]);
+
+            // al hacer click en el botón mostrar input
+            VPQ_unfold.click(function () {
+                // borrar botón
+                VPQ_unfold.removeClass("block");
+                VPQ_unfold.addClass("nodisplay");
+                // añadir input del año
+                VPQ_form.append("<p class='delete'>Introduce un año:</p>");
+                VPQ_form.append("<input id='year-input' class='p' type='text' />");
+                // seleccionar input año
+                let VPQ_year_input = $("#year-input");
+                // inicializar valores del día, mes y año
+                let VPQ_submit_year = 0;
+                let VPQ_submit_month = 0;
+                let VPQ_submit_day = 0;
+                // al dejar de estar en el input mostrar select
+                VPQ_year_input.blur(function () {
+                    let VPQ_year = parseInt(VPQ_year_input.val()); // .val() en lugar de .value en JQuery
+                    if (!isNaN(VPQ_year) && VPQ_year < 271821 && VPQ_year > -271821) { // fechas límite que puede usar javacsript https://stackoverflow.com/questions/11526504/minimum-and-maximum-date
+                        // guardar valor
+                        VPQ_submit_year = VPQ_year;
+                        // Ocultar 
+                        hideForm($(this));
+                        // Añadir siguiente formulario
+                        // lista con los meses
+                        VPQ_months_options = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', ' julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
+                        VPQ_form.append("<p class='delete'>Introduce un mes</p>");
+                        VPQ_form.append(`<select class="p text-center"><option disabled selected></option></select>`);
+                        // mostrar siguiente lista al seleccionar elemento del select
+                        let VPQ_select_month = $('select:first');
+                        // añadir opciones
+                        for (let element of VPQ_months_options) {
+                            VPQ_select_month.append(`<option>${element}</option>`);
+                        }
+
+                        VPQ_select_month.change(function () {
+                            // guardar valor
+                            VPQ_submit_month = VPQ_select_month.val();
+                            // borrar anteriores
+                            hideForm($(this));
+
+                            // pasar nombre del mes a inglés
+                            const months_en = {
+                                "enero": "January",
+                                "febrero": "February",
+                                "marzo": "March",
+                                "abril": "April",
+                                "mayo": "May",
+                                "junio": "June",
+                                "julio": "July",
+                                "agosto": "August",
+                                "septiembre": "September",
+                                "octubre": "October",
+                                "noviembre": "November",
+                                "diciembre": "December"
+                            };
+                            VPQ_submit_month_en = months_en[VPQ_submit_month];
+
+                            // sacar días de la semana correspondientes a cada día del mes y año introducido
+                            // necesitamos saber el número de días del mes. 
+                            // https://stackoverflow.com/questions/315760/what-is-the-best-way-to-determine-the-number-of-days-in-a-month-with-javascript
+                            // new Date(2019,2,0).getDate(); // con 0 en el día, muestra el último día
+                            // el mes tiene que estar en número
+                            // pasar mes a número
+                            const VPQ_months = {
+                                'enero': 1,
+                                'febrero': 2,
+                                'marzo': 3,
+                                'abril': 4,
+                                'mayo': 5,
+                                'junio': 6,
+                                'julio': 7,
+                                'agosto': 8,
+                                'septiembre': 9,
+                                'octubre': 10,
+                                'noviembre': 11,
+                                'diciembre': 12
+                            };
+                            let VPQ_month_number = VPQ_months[VPQ_submit_month];
+                            // sacar número de días en el mes
+                            let VPQ_days_in_month = new Date(VPQ_submit_year, VPQ_month_number, 0).getDate();
+
+                            let VPQ_days_of_week_array = [];
+                            // bucle mientras el mes tenga días
+                            for (let VPQ_i = 1; VPQ_i <= VPQ_days_in_month; VPQ_i++) {
+                                // crear fecha: https://www.w3schools.com/jsref/jsref_getday.asp
+                                let VPQ_date = new Date(`${VPQ_submit_month_en} ${VPQ_i} ${VPQ_submit_year}`); // fecha con el año y mes introducidos
+                                let VPQ_day_of_week = VPQ_date.getDay(); // para cada día, saca su día de la semana
+                                // pasar día de la semana en número a palabra
+                                const VPQ_days = {
+                                    0: "Domingo",
+                                    1: "Lunes",
+                                    2: "Martes",
+                                    3: "Miércoles",
+                                    4: "Jueves",
+                                    5: "Viernes",
+                                    6: "Sábado"
+                                };
+                                VPQ_days_of_week_array.push(VPQ_days[VPQ_day_of_week]); // guardar en array
+                            }
+
+                            // Añadir siguiente parte del formulario
+                            VPQ_form.append("<p class='delete'>Introduce un día");
+                            VPQ_form.append(`<select class="p text-center"><option disabled selected></option></select>`);
+                            // seleccionar input
+                            let VPQ_select_day = $("select").eq(1); // https://api.jquery.com/eq/
+                            //  añadir opciones al input
+                            for (let VPQ_i = 1; VPQ_i <= VPQ_days_in_month; VPQ_i++) {
+                                VPQ_select_day.append(`<option>${VPQ_i} - ${VPQ_days_of_week_array[VPQ_i - 1]}</option>`);
+                            }
+
+                            VPQ_select_day.change(function () {
+                                // guardar valor
+                                VPQ_submit_day = VPQ_select_day.val().split(" - ")[0]; // valor del input solo del numero
+                                // calcular el día de la semana
+                                let VPQ_day_of_week = VPQ_select_day.val().split(" - ")[1];
+                                // borrar anteriores
+                                hideForm($(this));
+
+                                // mostrar el h1
+                                VPQ_body.append(`<h1 class="text-center text-white">La fecha introducida es: <span class="text-yg">${VPQ_day_of_week}, día ${VPQ_submit_day} de ${VPQ_submit_month} del año ${VPQ_submit_year}</span></h1>`);
+                            });
+                        });
+
+                    }
+                });
+
+            });
+
+        });
+    </script>
+    <style>
+        .nodisplay {
+            display: none;
+        }
+
+        .bg {
+            background-color: rgb(42, 43, 44);
+        }
+
+        .bg-yg {
+            background-color: yellowgreen;
+            color: white;
+        }
+
+        .text-yg {
+            color: yellowgreen;
+        }
+
+        .center {
+            width: 15%;
+            margin: 20px auto;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .fs-large {
+            font-size: 20px;
+        }
+
+        .p {
+            padding: 10px;
+        }
+
+        .mt {
+            margin-top: 30vh;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .helvetica {
+            font-family: Helvetica;
+        }
+
+        .flex-center {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="unfold" style="cursor: pointer;">Desplegar</button>
+    <div id="main"></div>
+</body>
+
+</html>

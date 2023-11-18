@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinnok DB</title>
+    <script src="/js/app.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <h1>Chinook DB</h1>
+    <% if(locals.artists != "empty"){ %>
+        <div id="select-artist">
+            <select name="artists" id="artists">
+                <option disabled selected></option>
+                <% artists.forEach(function(artist, index) { %>
+                    <option value="<%= index+1 %>"><%= artist.Name %></option>
+                <% }) %>
+            </select>
+        </div>
+    <% } %>
+    <% if(locals.albums){ %>
+        <div id="album">
+        <% if(albums == "empty"){ %>
+            <% if(artist == "empty") { %>
+                <p>Error 404: Artist not found.</p>
+            <% } else { %>
+                <h2><%= artist[0].Name %></h2>
+                <p>Todavía no tenemos ningún album de este artista</p>
+            <% } %>
+        <% } else { %>
+            <h2><%= albums[0].Name %></h2>
+            <ul>
+                <% albums.forEach(function(album) { %>
+                    <li><%= album.Title %></li>
+                <% }) %>
+            </ul>
+        <% } %>
+        </div>
+        <div><p id="volver">Volver Al Inicio</p></div>
+    <% } %>
+</body>
+</html>

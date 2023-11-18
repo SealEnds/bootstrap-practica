@@ -1,0 +1,51 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    color: white;
+    background-color: rgb(74, 123, 124);
+}
+
+h1 {
+    text-align: center;
+    width: 80%;
+    margin: 30px auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ff6868;
+}
+
+select {
+    width: 60%;
+    height: 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+option{
+    cursor: pointer;
+}
+#select-artist{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+#album{
+    font-size: 24px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center; 
+    padding-left: 2%;
+}
+#album li{
+    margin-top: 5px;
+}
+#volver{
+    cursor: pointer;
+    color: #ff6868;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}

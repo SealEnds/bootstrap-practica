@@ -1,0 +1,116 @@
+<!-- 
+ 05/10/2023
+
+ Crear una página donde, por medio de un cuadro desplegable fijo, puedas indicar el número de áreas de color que se van a presentar, entre 1 y 15.
+
+Estas áreas de color se crearán de forma dinámica y el color de cada una de ellas será aleatorio, exceptuando el negro, y tras su creación, se podrá elegir desde un cuadro desplegable cualquiera de ellas al azar, pasando su color al negro.
+ =======================================================================================================
+    
+-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <script>
+        function getRandom(VPQ_min, VPQ_max) {
+            return Math.floor(Math.random() * (VPQ_max - VPQ_min + 1) + VPQ_min);
+        }
+        function getByTag(VPQ_tagname, VPQ_index) {
+            return document.getElementsByTagName(VPQ_tagname)[VPQ_index];
+        }
+        function createE(VPQ_e, VPQ_text) {
+            let VPQ_element_node = document.createElement(VPQ_e);
+            let VPQ_text_node = document.createTextNode(VPQ_text);
+            VPQ_element_node.appendChild(VPQ_text_node);
+            return VPQ_element_node;
+        }
+        function appendMany(VPQ_padre, VPQ_hijo) {
+            VPQ_hijo.forEach(VPQ_e => {
+                VPQ_padre.appendChild(VPQ_e);
+            });
+        }
+        function attrMany(VPQ_element, VPQ_values) {
+            for (let VPQ_key in VPQ_values) {
+                VPQ_element.setAttribute(VPQ_key, VPQ_values[VPQ_key]);
+            }
+        }
+        function deleteChildren(VPQ_node) {
+            while (VPQ_node.children.length > 0) {
+                VPQ_node.removeChild(VPQ_node.children[0]);
+            };
+        }
+        function randomBackgroundColors() {
+            let VPQ_r = getRandom(0, 255);
+            let VPQ_g = getRandom(0, 255);
+            let VPQ_b = getRandom(0, 255);
+            if (VPQ_r != 0 && VPQ_g != 0 & VPQ_b != 0) {
+                return `rgb(${VPQ_r}, ${VPQ_g}, ${VPQ_b})`;
+            } else {
+                randomBackgroundColors();
+            }
+        }
+
+        window.addEventListener('load', () => {
+
+            let VPQ_main = getByTag('div', 0);
+            let VPQ_n_cuadros = document.createElement('select');
+            let VPQ_label_n_cuadros = createE('label', 'Introducir un número del 1 al 15 para crear los cuadrados: ');
+
+            for (let VPQ_o = 1; VPQ_o <= 15; VPQ_o++) {
+                let VPQ_option = createE("option", `${VPQ_o}`);
+                VPQ_n_cuadros.appendChild(VPQ_option);
+            }
+
+            let VPQ_caja_areas = document.createElement('div');
+            let VPQ_boton_crear = document.createElement('input');
+            let VPQ_div_cambiar_colores = document.createElement('div');
+            attrMany(VPQ_n_cuadros, { "value": 1, "min": 1, "max": 15, "style": "width: 3%" });
+            attrMany(VPQ_caja_areas, { "style": "width:50%, margin: 10px auto; border: 2px solid black; height: 200px" });
+            attrMany(VPQ_boton_crear, { "type": "button", "value": "Crear cajas" });
+
+            appendMany(VPQ_main, [VPQ_label_n_cuadros, VPQ_n_cuadros, VPQ_boton_crear, VPQ_caja_areas]);
+
+
+            VPQ_boton_crear.addEventListener('click', crearCuadros, false);
+            function crearCuadros() {
+                deleteChildren(VPQ_caja_areas);
+                deleteChildren(VPQ_div_cambiar_colores);
+                let VPQ_crear_n_cuadros = VPQ_n_cuadros.value;
+
+                let VPQ_label_cambiar_color = createE('label', 'Elige que area quieres cambiar a negro');
+                let VPQ_area_cambiar_color = document.createElement('select');
+                let VPQ_boton_cambiar_color = document.createElement('input');
+
+                for (let VPQ_i = 0; VPQ_i < VPQ_crear_n_cuadros; VPQ_i++) {
+                    let VPQ_area = document.createElement('div');
+                    let VPQ_backgroundColor = randomBackgroundColors();
+                    attrMany(VPQ_area, { "style": `width:100px;  height: 100px; background-color: ${VPQ_backgroundColor}; float:left` });
+                    VPQ_caja_areas.appendChild(VPQ_area);
+
+                    let VPQ_option = createE("option", `${VPQ_i + 1}`);
+                    VPQ_area_cambiar_color.appendChild(VPQ_option);
+                }
+
+                attrMany(VPQ_boton_cambiar_color, { "type": "button", "value": "Cambiar color" });
+                appendMany(VPQ_div_cambiar_colores, [VPQ_label_cambiar_color, VPQ_area_cambiar_color, VPQ_boton_cambiar_color]);
+                VPQ_main.appendChild(VPQ_div_cambiar_colores);
+
+                VPQ_boton_cambiar_color.addEventListener('click', () => {
+                    VPQ_caja_areas.childNodes[VPQ_area_cambiar_color.value - 1].style.backgroundColor = 'black';
+                });
+            }
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="main"></div>
+
+</body>
+
+</html>

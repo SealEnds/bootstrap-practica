@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novelas Inolvidables</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener('load', () => {
+            function get(id) {
+                return document.getElementById(id);
+            }
+
+            /* Cambiar estilos del offcanvas según sea iniciar sesión o crear cuenta. Permitir cambiar entre los dos modos */
+            let btn_inicio_sesion = get("btn-inicio-sesion");
+            let btn_crear_cuenta = get("btn-crear-cuenta");
+            let create_account_form = get("create-account-form");
+            let login_account_form = get("login-account-form");
+            let btn_iniciar_sesion_2 = get("boton-iniciar-2"); // botones de abajo del inicio para que se abra directamente en el offcanvas el inicio o el crear
+            let btn_inicio_sesion_3 = get("boton-iniciar-menu");
+            let btn_crear_cuenta_2 = get("boton-crear-cuenta-2");
+            let btns_iniciar = [btn_inicio_sesion, btn_iniciar_sesion_2, btn_inicio_sesion_3];
+            btns_iniciar.forEach(element => {
+                element.addEventListener('click', () => {
+                    btn_inicio_sesion.style.color = "#f07167";
+                    btn_inicio_sesion.style.fontSize = "18px";
+                    btn_crear_cuenta.style.color = "black";
+                    btn_crear_cuenta.style.fontSize = "12px";
+                    // cambiar display flex del nodo padre (div) del padre (span)
+                    btn_inicio_sesion.parentNode.parentNode.style.flexDirection = 'row';
+                    // cambiar formulario
+                    console.log(create_account_form, login_account_form);
+                    create_account_form.setAttribute("class", "d-none");
+                    login_account_form.setAttribute("class", "d-block");
+                });
+            });
+            let btns_crear = [btn_crear_cuenta, btn_crear_cuenta_2];
+            btns_crear.forEach(element => {
+                element.addEventListener('click', () => {
+                    btn_inicio_sesion.style.color = "black";
+                    btn_inicio_sesion.style.fontSize = "12px";
+                    btn_crear_cuenta.style.color = "#f07167";
+                    btn_crear_cuenta.style.fontSize = "18px";
+
+                    btn_crear_cuenta.parentNode.parentNode.style.flexDirection = 'row-reverse';
+                    console.log(create_account_form, login_account_form);
+                    create_account_form.setAttribute("class", "d-block");
+                    login_account_form.setAttribute("class", "d-none");
+                });
+            });
+
+            /* Para no enviar formulario si no se cumplen los requisitos y mostrar los colores https://getbootstrap.com/docs/5.0/forms/validation */
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- navbar -------------------------------------------------------------------------------------------------->
+    <header>
+        <!-- fixed-top para que el menú se mantenga arriba -->
+        <nav class="navbar fixed-top navbar-expand-md hola">
+            <div class="w-100">
+                <div class="d-flex flex-row flex-wrap justify-content-between  ">
+                    <div class="text-center col-12 col-sm-6  ">
+                        <a class="navbar-brand sacramento " href="index.html" class="category-link">Novelas
+                            Inolvidables</a>
+                    </div>
+                    <div class="col-4 d-none d-sm-block text-center ">
+                        <a class="navbar-brand" href="#">
+                            <!-- icono de carrito -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#f07167"
+                                class="bi bi-cart" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="container-fluid justify-content-around">
+
+                    <div class="collapse navbar-collapse border-top border-dark pt-2" id="navbarNav">
+                        <ul class="navbar-nav w-100 justify-content-evenly ">
+                            <!-- formnulario de básqueda -->
+                            <li class="nav-item col-lg-3 col-md-4 col-12 d-flex d-sm-block">
+                                <form class="d-flex mt-sm-0 mt-2 col-sm-12 col-10" role="search">
+                                    <input class="form-control me-2" type="search" id="search" placeholder="Buscar"
+                                        aria-label="Search">
+                                    <!-- icono de buscar -->
+                                    <button class="btn btn-outline-dark button text-white boton-buscar"
+                                        type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                        </svg></button>
+                                </form>
+                                <!-- sobra -->
+                                <a class="navbar-brand d-inline-block d-sm-none col-2 text-end p-2" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#f07167"
+                                        class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <!-- pestaña productos -->
+                            <li class="nav-item"><a class="nav-link efecto-hover" href="productos.html"
+                                    class="category-link">Productos</a></li>
+                            <li class="nav-item dropdown">
+                                <!-- pestaña tienda dropdown -->
+                                <a href="#" class="nav-link category-link efecto-hover" id="tienda-dropdown"
+                                    class="nav-link" data-bs-toggle="dropdown" aria-expanded="false">Tienda</a>
+                                <ul class="dropdown-menu" aria-labelledby="tienda-dropdown">
+                                    <li><a href="tiendas-fisicas.html" class="category-link color-interaccion-texto"
+                                            class="dropdown-item">Tiendas Físicas</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a href="tiendas-online.html" class="category-link color-interaccion-texto"
+                                            class="dropdown-item">Tiendas Online</a></li>
+                                </ul>
+                            </li>
+                            <!-- pestaña sobre nosotros -->
+                            <li class="nav-item"><a class="nav-link efecto-hover" href="nosotros.html"
+                                    class="category-link">Sobre
+                                    nosotros</a>
+                            </li>
+                            <!-- pestaña contacto -->
+                            <li class="nav-item"><a class="nav-link efecto-hover" href="contacto.html"
+                                    class="category-link">Contacto</a></li>
+                            <!-- pestaña iniciar sesión -->
+                            <li class="nav-item"><a class="nav-link efecto-hover" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvas-right" aria-controls="offcanvasRight" href="#"
+                                    class="category-link" id="boton-iniciar-menu">Iniciar Sesión</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Botón colapsable para pantallas pequeñas -->
+                    <button class="navbar-toggler w-100 border-2 border-black " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon  "></span>
+                    </button>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- carrousel -------------------------------------------------------------------------------------------------->
+        <!-- quiero cambiar el carrousel para hacer que los deslizadores estén fuera de la imagen. En grande muestra 4 imágenes a la vez, luego tres y en pequeño solo una -->
+        <!-- modo con cuatro elementos -->
+        <div id="carousel1" class="carousel slide d-none d-lg-block  " data-bs-ride="carousel" data-bs-wrap="true">
+            <!--data-bs-wrap = "true" para que de la vuelta-->
+            <div class="carousel-inner m-auto col-8 ">
+                <div class="carousel-item active d-flex flex-column flex-sm-row " data-bs-interval="4000">
+                    <div class="d-block img img1 "></div>
+                    <div class="d-block img img2 "></div>
+                    <div class="d-block img img3 "></div>
+                    <div class="d-block img img4 "></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="4000">
+                    <div class="d-block img img5 "></div>
+                    <div class="d-block img img6 "></div>
+                    <div class="d-block img img7 "></div>
+                    <div class="d-block img img8 "></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="4000">
+                    <div class="d-block img img9 "></div>
+                    <div class="d-block img img10 "></div>
+                    <div class="d-block img img11 "></div>
+                    <div class="d-block img img12 "></div>
+                </div>
+            </div>
+            <!-- botones de control-->
+            <button class="carousel-control-prev d-block col-2" type="button" data-bs-target="#carousel1"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                <span class="visually-hidden ">Previous</span>
+            </button>
+            <button class="carousel-control-next  d-block col-2" type="button" data-bs-target="#carousel1"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                <span class="visually-hidden ">Next</span>
+            </button>
+        </div>
+        <!-- carrousel modo con tres elementos -->
+        <div id="carousel1" class="carousel slide d-none d-md-block d-lg-none " data-bs-ride="carousel"
+            data-bs-wrap="true">
+            <!--data-bs-wrap = "true" para que de la vuelta-->
+            <div class="carousel-inner m-auto col-8 ">
+                <div class="carousel-item active d-flex flex-column flex-sm-row " data-bs-interval="4000">
+                    <div class="d-block img img1 "></div>
+                    <div class="d-block img img2 "></div>
+                    <div class="d-block img img3 "></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="4000">
+                    <div class="d-block img img4 "></div>
+                    <div class="d-block img img5 "></div>
+                    <div class="d-block img img6 "></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="4000">
+                    <div class="d-block img img7 "></div>
+                    <div class="d-block img img8 "></div>
+                    <div class="d-block img img9 "></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="4000">
+                    <div class="d-block img img10 "></div>
+                    <div class="d-block img img11 "></div>
+                    <div class="d-block img img12 "></div>
+                </div>
+            </div>
+            <!-- botones de control-->
+            <button class="carousel-control-prev d-block col-2" type="button" data-bs-target="#carousel1"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                <span class="visually-hidden ">Previous</span>
+            </button>
+            <button class="carousel-control-next  d-block col-2" type="button" data-bs-target="#carousel1"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                <span class="visually-hidden ">Next</span>
+            </button>
+        </div>
+        <!-- carrousel modo con un elemento -->
+        <div id="carousel2" class="carousel slide d-block d-md-none " data-bs-ride="carousel" data-bs-wrap="true">
+            <div class="carousel-inner m-auto col-8  ">
+                <div class="carousel-item active d-flex flex-column flex-sm-row " data-bs-interval="2000">
+                    <div class="d-block una-img img1 w-75 w-50-sm"></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="2000">
+                    <div class="d-block una-img img2 w-75 w-50-sm"></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="2000">
+                    <div class="d-block una-img img3 w-75 w-50-sm"></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="2000">
+                    <div class="d-block una-img img4 w-75 w-50-sm"></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="2000">
+                    <div class="d-block una-img img5 w-75 w-50-sm"></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="2000">
+                    <div class="d-block una-img img6 w-75 w-50-sm"></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="2000">
+                    <div class="d-block una-img img7 w-75 w-50-sm"></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="2000">
+                    <div class="d-block una-img img8 w-75 w-50-sm"></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="2000">
+                    <div class="d-block una-img img9 w-75 w-50-sm"></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="2000">
+                    <div class="d-block una-img img10 w-75 w-50-sm"></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="2000">
+                    <div class="d-block una-img img11 w-75 w-50-sm"></div>
+                </div>
+                <div class="carousel-item d-flex flex-column flex-sm-row" data-bs-interval="2000">
+                    <div class="d-block una-img img12 w-75 w-50-sm"></div>
+                </div>
+            </div>
+            <!-- botones de control del carousel -->
+            <button class="carousel-control-prev bg-dark d-block col-2" type="button" data-bs-target="#carousel2"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon text-dark" aria-hidden="true"></span>
+                <span class="visually-hidden ">Previous</span>
+            </button>
+            <button class="carousel-control-next bg-dark d-block col-2" type="button" data-bs-target="#carousel2"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon text-dark" aria-hidden="true"></span>
+                <span class="visually-hidden ">Next</span>
+            </button>
+        </div>
+
+        <!-- cards de productos ------------------------------------------------------------------------------------------>
+        <div class="d-flex mt-4 m-2 flex-row flex-wrap ">
+
+            <div class="card mb-4 col-lg-4 col-sm-4 col-6 m-auto">
+                <div class="row g-0 p-sm-2 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex"
+                        style="min-height: 300px;">
+                        <img src="assets/img/anunciada.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info d-flex flex-column justify-content-around ">
+                        <div class="card-body">
+                            <h5 class="card-title">Crónicas de una Muerte Anunciada</h5>
+                            <p class="card-text">Gabriel García Márquez</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4 col-lg-4 col-sm-4 col-6 m-auto">
+                <div class="row g-0 p-sm-2 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex"
+                        style="min-height: 300px;">
+                        <img src="assets/img/conde.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body">
+                            <h5 class="card-title">El Conde Lucanor</h5>
+                            <p class="card-text">Don Juan Manuel</p>
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4 col-lg-4 col-sm-4 col-6 m-auto">
+                <div class="row g-0 p-sm-2 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex "
+                        style="min-height: 300px;">
+                        <img src="assets/img/dune.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body">
+                            <h5 class="card-title">Dune</h5>
+                            <p class="card-text">Frank Herbert</p>
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4 col-lg-4 col-sm-4 col-6 m-auto">
+                <div class="row g-0 p-sm-2 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex"
+                        style="min-height: 300px;">
+                        <img src="assets/img/edipo.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body">
+                            <h5 class="card-title">Edipo Rey</h5>
+                            <p class="card-text">Sófocles</p>
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4 col-lg-4 col-sm-4 col-6 m-auto">
+                <div class="row g-0 p-sm-2 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex "
+                        style="min-height: 300px;">
+                        <img src="assets/img/gita.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body">
+                            <h5 class="card-title">Bhagavad Gita</h5>
+                            <p class="card-text">Anónimo</p>
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4 col-lg-4 col-sm-4 col-6 m-auto">
+                <div class="row g-0 p-sm-2 p-0">
+                    <div class="col-lg-6 fondo-madera border-card-img radius-card-img d-flex "
+                        style="min-height: 300px;">
+                        <img src="assets/img/iliada.jpg" class="img-fluid img-producto radius-card-img" alt="...">
+                    </div>
+                    <div class="col-lg-6 border-card-info">
+                        <div class="card-body">
+                            <h5 class="card-title">La Ilíada</h5>
+                            <p class="card-text">Homero</p>
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- 
+            Lista de categorías
+        -->
+        <div class="w-100" id="div-categorias">
+
+            <div
+                class="col-11 col-sm-10 col-md-9 m-auto d-flex flex-wrap pt-3 pb-3 border-top border-2 border-black justify-content-center">
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Clásicos
+                    Universales</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Contemporánea</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Policíaca</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Thriller</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Aventuras</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Fantasía</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Ciencia
+                    Ficción</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Terror</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Romántica</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Histórica</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Infantil</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Juvenil</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Española</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Hispanoamericana</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Europea</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Asíatica</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Poesía</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Teatro</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Novela
+                    Gráfica</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Filosofía</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Economía</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Política</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Ciencias
+                    Naturales</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Tecnología</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Historia</a>
+                <a href="#"
+                    class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Humanidades</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Arte</a>
+                <a href="#" class="d-block category-link w-auto p-2 m-2 rounded-5 bg-white text-dark boton">Estilo de
+                    Vida</a>
+            </div>
+        </div>
+        <!-- Información relevante -->
+        <div class="d-flex flex-wrap justify-content-center mt-4 pb-3 informacion">
+            <div class="w-75 m-auto border-top border-2 border-black ">
+                <h2 class="col-12 text-center pt-4 pb-2 caslon">¿Qué puedes hacer?</h2>
+            </div>
+            <div class="border p-4 text-center bg-white col-md-4 d-flex flex-row flex-wrap ">
+                <span class="m-auto  d-flex rounded-5 circulo-numeracion text-center mb-3">1</span>
+                <span>
+                    Millones de títulos a tu alcance
+                    Busca libros, revistas o cómics, y échales un vistazo antes de comprarlos. Comprar ahora
+                </span>
+            </div>
+            <div class="border p-4 text-center bg-white col-md-4">
+                <span class="m-auto  d-flex rounded-5 circulo-numeracion text-center mb-3">2</span>
+                <span>
+                    Lee en todos tus dispositivos
+                    Inicia sesión en tu cuenta para acceder a tus libros y el resto del contenido en cualquier
+                    dispositivo.
+                </span>
+            </div>
+            <div class="border p-4 text-center bg-white col-md-4">
+                <span class="m-auto  d-flex rounded-5 circulo-numeracion text-center mb-3">3</span>
+                <span>
+                    Diseñado para todos los tipos de lectores
+                    Personaliza tu experiencia Kindle para adaptarla a tus necesidades y preferencias de lectura.
+                </span>
+            </div>
+            <div class="border p-4 text-center bg-white col-md-3">
+                <span class="m-auto  d-flex rounded-5 circulo-numeracion text-center mb-3">4</span>
+                <span>
+                    Lee como quieras
+                    Ajusta el tamaño del texto, la fuente, el diseño, los márgenes, el color de fondo y mucho más para
+                    que
+                    puedas leer cómodamente.
+                </span>
+            </div>
+            <div class="border p-4 text-center bg-white col-md-3">
+                <span class="m-auto  d-flex rounded-5 circulo-numeracion text-center mb-3">5</span>
+                <span>
+                    Busca dentro del libro
+                    Busca palabras, frases o nombres dentro del libro y llega a ellas.
+                </span>
+            </div>
+            <div class="border p-4 text-center bg-white col-md-3">
+                <span class="m-auto  d-flex rounded-5 circulo-numeracion text-center mb-3">6</span>
+                <span>
+                    Añade notas y subraya tus fragmentos favoritos. Con
+                    Kindle es muy fácil encontrar y volver a leer tus notas.
+                </span>
+            </div>
+            <div class="border p-4 text-center bg-white col-md-3">
+                <span class="m-auto  d-flex rounded-5 circulo-numeracion text-center">7</span>
+                <span>
+                    Consulta rápidamente las palabras de tu libro en el
+                    diccionario. Mantén pulsada una palabra y luego suéltala para ver la definición.
+                </span>
+            </div>
+
+        </div>
+        <div class="d-flex flex-wrap justify-content-center mt-4 pb-3 informacion">
+
+            <div class="text-center pb-3 col-12">
+                <div class="w-75 m-auto border-top border-2 border-black ">
+                    <h2 class="col-12 text-center pt-4 pb-2 caslon">Empieza a disfrutar de Kindle</h2>
+                </div>
+
+                <div class="d-flex justify-content-center ">
+
+                    <div class="col-xl-3 col-md-4 col-sm-5 col-6 border p-4 text-center bg-white col-sm-6"><button
+                            class="rounded-4 p-3 border-0 sombras" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvas-right" aria-controls="offcanvasRight" href="#"
+                            id="boton-crear-cuenta-2">Crea una cuenta</button></div>
+                    <div class="col-xl-3 col-md-4 col-sm-5 col-6 border p-4 text-center bg-white col-sm-6"><button
+                            class="rounded-4 p-3 border-0  sombras" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvas-right" aria-controls="offcanvasRight" href="#"
+                            id="boton-iniciar-2">Iniciar
+                            sesión</button></div>
+                </div>
+            </div>
+        </div>
+        <!-- ¿? -->
+    </main>
+
+    <aside>
+        <!-- Offcanvas de inicio de sesión ---------------------------------------------------------------------------->
+        <!-- botón inicio sesión -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-right" aria-labelledby="offcanvas-right-label">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvas-right-label">ENTRAR</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <!-- inicio sesión: -->
+                    <!-- cambiar tipo de formulario al clicar en crear cuenta -->
+                    <p class="d-flex flex-wrap justify-content-around"><span><button class="border-0 bg-white mb-5"
+                                id="btn-inicio-sesion">Iniciar
+                                sesión</button></span><span>&nbsp;/&nbsp;</span><span><button
+                                class="border-0 bg-white mb-5" id="btn-crear-cuenta">Crear una cuenta</button></span>
+                    </p>
+                    <!-- formulario inicio sesión -->
+                    <div class="d-block " id="login-account-form">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-12 m-auto ">
+                                <label for="validationCustom01" class="form-label mt-2 mb-1">Email</label>
+                                <input type="email" class="form-control" id="validationCustom01" required>
+                                
+                            </div>
+
+                            <div class="col-md-12 m-auto ">
+                                <label for="validationCustom02" class="form-label mt-2 mb-1">Contraseña</label>
+                                <input type="password" class="form-control" id="validationCustom02" required>
+                                
+                            </div>
+                            <div class="col-12">
+                                <button class="btn color-interaccion text-white w-50 p-2 mt-1"
+                                    type="submit">Entrar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- formulario crear cuenta con validación -->
+                    <div class="d-none " id="create-account-form">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-6 m-auto ">
+                                <label for="validationCustom03" class="form-label mt-2 mb-1">Nombre</label>
+                                <input type="text" class="form-control" id="validationCustom03" required>
+                                
+                            </div>
+                            <div class="col-md-6 m-auto ">
+                                <label for="validationCustom04" class="form-label mt-2 mb-1">Apellidos</label>
+                                <input type="text" class="form-control" id="validationCustom04" required>
+                                
+                            </div>
+                            <div class="col-md-12 m-auto ">
+                                <label for="validationCustom05" class="form-label mt-2 mb-1">Email</label>
+                                <input type="email" class="form-control" id="validationCustom05" required>
+                                
+                            </div>
+
+                            <div class="col-md-12 m-auto ">
+                                <label for="validationCustom06" class="form-label mt-2 mb-1">Contraseña</label>
+                                <input type="password" class="form-control" id="validationCustom06" required>
+                                
+                            </div>
+                            <div class="col-md-12 m-auto ">
+                                <label for="validationCustom07" class="form-label mt-2 mb-1">Confirmar
+                                    Contraseña</label>
+                                <input type="password" class="form-control" id="validationCustom07" required>
+                                
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Recibir notificaciones sobre ofertas y noticias
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required
+                                        checked>
+                                    <label class="form-check-label" for="invalidCheck">
+                                        Agree to terms and conditions
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree before submitting.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn color-interaccion text-white w-50 p-2 mt-1"
+                                    type="submit">Registrarse</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </aside>
+
+    <footer class=" mt-4">
+        <nav class="nav nav-pills flex-column flex-sm-row align-content-center align-items-center">
+            <!-- lista con enlaces -->
+            <div class=" col-6 col-md-4 ">
+                <ul id="footer-menu">
+                    <li class="list-group-item"><a class="flex-sm-fill mt-2 text-sm-center nav-link text-white"
+                            href="index.html" aria-disabled="true">Inicio</a></li>
+                    <li class="list-group-item"> <a class="flex-sm-fill mt-2 text-sm-center nav-link text-white"
+                            aria-current="page" href="nosotros.html" id="aa">Sobre Nosotros</a></li>
+                    <li class="list-group-item"> <a class="flex-sm-fill mt-2 text-sm-center nav-link text-white"
+                            href="contacto.html">Contacto</a></li>
+                    <li class="list-group-item"><a class="flex-sm-fill mt-2 text-sm-center nav-link text-white"
+                            href="productos.html">Productos</a></li>
+                </ul>
+            </div>
+            <!-- newsletter input -->
+            <div class="pt-5 pb-5 col-10 col-sm-6 col-md-4 bg-white d-flex flex-column flex-wrap align-items-center "
+                id="newsletter-div">
+                <p class="text-black ">¡Suscríbete a nuestra Newsletter!</p>
+                <form class="d-flex">
+                    <input id="newsletter-input" type="email" name="newsletter" class="p-2 rounded-0 ">
+                    <submit id="newsletter-button" class="p-2 rounded-0 pointer">Unirse</submit>
+                </form>
+            </div>
+            <!-- mapa -->
+            <div class="col-10 col-sm-8 col-md-4 flex-sm-fill text-sm-center nav-link ">
+                <h4 class="col-12 text-white d-block d-md-none">¿Dónde estamos?</h4>
+                <iframe class="w-100 h-100 "
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1116.2567871247684!2d96.18301375538437!3d19.771067169817524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c8b96cc1f4e7f1%3A0x1d8ea57a73e33c39!2sPagoda%20Uppatasanti!5e0!3m2!1ses!2ses!4v1698047413022!5m2!1ses!2ses"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-12 text-center mt-5">
+                <p>&copy; Víctor Pérez Quesada 2023</p>
+            </div>
+        </nav>
+    </footer>
+
+
+
+
+</body>
+
+</html>
