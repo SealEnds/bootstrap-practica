@@ -1,11 +1,7 @@
-/* Víctor Pérez Quesada
+/*
 18/11/2023
 
 Con la base de datos de chinook.db de SQL que hemos utilizado en clase y que se encuentra en la plataforma, realizar una página cuyo Frontend en Express que se sirva en el puerto 65235 tal que cargue inicialmente todos los artistas que existen en la base de datos en un cuadro desplegable (select) de forma que, al seleccionar uno de ellos, muestre en una lista no ordenada de todos los álbums que están asociados a este artista. En caso de seleccionar otro artista de nuevo, deberá limpiar la lista y colocar de nuevo los álbums del nuevo artista seleccionado. 
-
-Es fundamental que se cuente con un diseño bonito y actual. 
-
-En el Backend del servidor, se deberá notificar cuantas veces se ha seleccionado el artista, así como el tiempo que lleva el servidor encendido, expresado en días, horas, minutos y/o segundos según corresponda (esto quiere decir que si no lleva un día, no tendrá que mostrarlo, al igual que las horas que no lleve).
 
 */
 const path = require('path');
