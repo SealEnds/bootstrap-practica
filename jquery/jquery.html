@@ -1,5 +1,7 @@
-<!-- 
+<!-- Víctor Pérez Quesada
  31/10/2023
+
+
 ===============================================================================================================
 Consiste en crear una web la cual se despliegue por completo al pulsar un botón, empleando jQuery.
 
@@ -22,13 +24,6 @@ Se deberán entregar todos los archivos para que el programa funcione correctame
     <script src="jquery-3.7.1.js"></script>
     <script>
 
-        // función para añadir varias clases a la vez con JQuery
-        function addClasses(VPQ_element, VPQ_classes) {
-            VPQ_classes.forEach(VPQ_class => {
-                VPQ_element.addClass(VPQ_class);
-            });
-        }
-
         $(document).ready(function () {
 
             // función para ocultar la perte del formulario
@@ -36,20 +31,14 @@ Se deberán entregar todos los archivos para que el programa funcione correctame
                 $('p.delete').addClass('nodisplay');
                 VPQ_this.addClass('nodisplay'); // con function(), this se refiere al elemento que lanza el evento
             }
-
-
-
             let VPQ_body = $('body');
-            addClasses(VPQ_body, ["bg", "helvetica"]);
-
+            VPQ_body.addClass(['bg', 'helvetica']);
             // boton para desplegar formulario
             let VPQ_unfold = $("#unfold"); // botón primero
-            addClasses(VPQ_unfold, ["block", "center", "fs-large", "p", "mt", "bg-yg"]);
-
+            VPQ_unfold.addClass(["block", "center", "fs-large", "p", "mt", "bg-yg"]);
             // div del formulario
             let VPQ_form = $('#main');
-            addClasses(VPQ_form, ["flex-center", "center", "fs-large", "p", "mt", "text-white"]);
-
+            VPQ_form.addClass(["flex-center", "center", "fs-large", "p", "mt", "text-white"]);
             // al hacer click en el botón mostrar input
             VPQ_unfold.click(function () {
                 // borrar botón
