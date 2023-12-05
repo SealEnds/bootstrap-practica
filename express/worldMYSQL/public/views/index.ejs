@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORLD DB</title>
+    <script src="/js/app.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <h1>WORLD DB</h1>
+    <% if(locals.countries != "empty"){ %>
+        <div id="select-country">
+            <select name="countries" id="countries">
+                <option disabled selected></option>
+                <!-- añadir opciones y un valor a cada opción, que será el id de la ruta -->
+                <% countries.forEach(function(country, index) { %>
+                    <option value="<%= country.Code %>"><%= country.Name %></option>
+                <% }) %>
+            </select>
+        </div>
+        
+        <% if(locals.cities){ %>
+            <div id="city">
+            <% if(cities == "empty"){ %>
+                <% if(countries == "empty") { %>
+                    <p>Error 500</p>
+                <% } else { %>
+                    <h2><%= countries[0].Name %></h2>
+                    <p>No hay ciudades registradas de este país</p>
+                <% } %>
+            <% } else if(locals.cities.length > 0){ %>
+                <h2><%= cities[0].country %></h2>
+                <ul>
+                    <% cities.forEach(function(cities) { %>
+                        <li><%= cities.Name %></li>
+                        <% }) %>
+                    </ul>
+            <% } else { %>
+                <p>Error 404: not found</p>
+            <% } %>
+            </div>
+            <div><p id="homelink">Volver Al Inicio</p></div>
+        <% } %>
+    <% } %>
+
+</body>
+</html>
