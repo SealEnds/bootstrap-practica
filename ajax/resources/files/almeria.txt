@@ -1,0 +1,38 @@
+{
+    "results":
+    [
+        {
+            "provincia": "Almería",
+            "comunidad": "Andalucía",
+            "picture": [
+                "resources/img/almeria.jpg",
+                "resources/img/almeria2.jpg",
+                "resources/img/almeria3.jpg"
+            ],
+            "nat": "ES",
+            "info": 
+            {
+                "historia": 
+                [
+                    "Se estima que el primer asentamiento humano de la zona debió de emplazarse en el cerro de la Alcazaba. El arqueólogo Juan Cuadrado habló en su momento de restos neolíticos, remontándose los hallazgos más antiguos y documentados al Paleolítico medio. Existen asimismo restos fenicios posteriores.",
+                    "Con la desintegración de este tras la muerte de Hixem II, Jairán se convirtió en el primer rey de la taifa de Almería, destacando entre sus logros la ampliación y refuerzo de la alcazaba. El mayor esplendor lo alcanzó con su sucesor Almotacín, rey poeta que supo mantener el emporio económico a la par que ilustraba su corte con literatos y científicos."
+                ],
+                "geografia": 
+                [
+                    "El término municipal abarca una extensión de 296,21 km².23​ Está situado en el sur de la provincia homónima, la cual ocupa el extremo oriental de Andalucía, que a su vez se corresponde con la esquina sureste de la península ibérica. Queda representado en las hojas MTN50 (escala 1:50 000) n.º 1044, 1045, 1058 y 1059 del Mapa Topográfico Nacional.",
+                    "Es la única ciudad transcontinental de España, al estar geográficamente situada en Europa y África, debido a que la Isla de Alborán pertenece al continente africano."
+                ],
+                "patrimonio":
+                [
+                    "La Alcazaba. La construcción de la antigua fortaleza árabe, sede del gobierno de la taifa almeriense, comenzó en 955 por orden de Abderramán III siendo terminada en el siglo xi bajo el mandato de Hayrán.",
+                    "Los aljibes de Jairán: De su época musulmana cabe asimismo destacar los aljibes árabes de Jairán, construidos por mandato de ese rey durante la taifa del siglo xi para el abastecimiento de agua. Están divididos en tres naves de ladrillo abovedadas y son sede desde hace décadas de la Peña Flamenca El Taranto."
+                ],
+                "cultura":
+                [
+                    "Gastronomía: Ante su ancestral aislamiento del resto del territorio peninsular, Almería se vio obligada al autoabastecimiento durante largo tiempo, lo que posibilitó el desarrollo de una cocina sencilla pero diversa, basada en productos locales.",
+                    "Su fiesta mayor, celebrada en honor a la Virgen del Mar, su patrona, tiene lugar durante la última semana del mes de agosto."
+                ]
+            }
+        }
+    ]
+}

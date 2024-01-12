@@ -1,0 +1,38 @@
+{
+    "results":
+    [
+        {
+            "provincia": "Jaén",
+            "comunidad": "Andalucía",
+            "picture": [
+                "resources/img/jaen.jpg",
+                "resources/img/jaen2.jpg",
+                "resources/img/jaen3.jpg"
+            ],
+            "nat": "ES",
+            "info": 
+            {
+                "historia": 
+                [
+                    "En el primer tercio del siglo vi se asentaron los visigodos, quedando la ciudad al margen de sus asentamientos, por lo que siguió siendo un territorio en el que predominaba la población hispanorromana, con algunas guarniciones militares como Mentesa, en las que se concentraba la población germánica. Durante todo este siglo, la presencia visigoda fue débil, siendo frecuentes las rebeliones de la aristocracia hispanorromana. La presencia visigoda supuso un momento de decadencia para la ciudad en favor de Mentesa, hasta donde llegaba el limes bizantino, lo que se traduce en una reducción del material arqueológico; existen pocos restos materiales de este período, destacando un tremís áureo perteneciente al reinado de Wamba que apareció en una excavación arqueológica llevada a cabo en la plaza de Cambil en 1992.",
+                    "Tras la conquista de la península por los árabes la ciudad recobró su importancia, convirtiéndose en la capital de la taifa de Jaén. Se le concedió un walí y se levantaron mezquitas, fortificaciones y palacios. Durante los cinco siglos de dominio árabe Jayyān (en idioma árabe جيان) fue considerada como una gran ciudad. En el siglo x, la ciudad fue conquistada por Abderramán III, convirtiéndose en la capital de la cora de Yayyan. Los almorávides la incorporaron a su imperio en 1091 y los almohades la conquistaron en 1148. Durante la etapa musulmana, Jaén disponía de excelentes tierras regadas por abundantes aguas que fluían desde ríos y fuentes, lo que ayudó a que existieran bosques frondosos y gran cantidad de cultivos y cereal, así como una famosa industria de tapices y utensilios domésticos de madera que se exportaban por todo al-Ándalus y el Magreb."
+                ],
+                "geografia":
+                [
+                    "El término municipal de Jaén ocupa 426 km², estando representado en las hojas 925, 926, 947 y 969 del Mapa Topográfico Nacional. La ciudad está situada entre la depresión Bética y la cordillera Subbética, al pie del monte de Jabalcuz y cerca del río Guadalbullón, salida serrana por la que transcurre desde la antigüedad la ruta que une Granada con el río Guadalquivir y la meseta.",
+                    "De acuerdo con la clasificación climática de Köppen el clima de Jaén es mediterráneo (Csa), pudiéndose considerar mediterráneo continentalizado de acuerdo con otras fuentes, por tener una amplitud térmica notablemente mayor que en la costa mediterránea."
+                ],
+                "patrimonio":
+                [
+                    "Los baños árabes de Jaén son los más grandes que se conservan en Europa, construidos en época de Abderramán II, están en un excelente estado de conservación. Se dividen en varias salas gran belleza que representan una importante muestra del arte almorávide y almohade en la península ibérica. Se localizan bajo el renacentista Palacio del Conde de Villardompardo.",
+                    "Parque de la Concordia, está situado junto a la plaza de las Batallas. Es un espacio verde entre los dos grandes ejes de crecimiento de la ciudad, la avenida de Madrid y el paseo de la Estación."
+                ],
+                "cultura":
+                [
+                    "La noche del 16 de enero se celebran las «Lumbres de San Antón»,257​ en las que aparte de comer y bailar, se cantan melenchones.258​ Esa misma noche se celebra la Carrera Urbana Internacional Noche de San Antón, de fama internacional, en la que los corredores participan animados por todos los jiennenses, que portan antorchas, especialmente en el tramo final, a su llegada a la avenida de Andalucía.259​ Es Fiesta de Interés Turístico Nacional desde 2019.",
+                    "La celebración de los distintos actos que tienen lugar durante la Semana Santa se convierten en uno de los acontecimientos culturales, religiosos y artísticos más importantes que se producen en la ciudad. La Semana Santa está considerada como Fiesta de Interés Turístico Nacional, en la que hay toda una de serie de elementos relacionados con la Semana Santa giennense como son los pasos, las cofradías y hermandades, los nazarenos, los costaleros y las saetas."
+                ]
+            }
+        }
+    ]
+}

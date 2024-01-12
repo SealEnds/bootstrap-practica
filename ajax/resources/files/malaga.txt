@@ -1,0 +1,38 @@
+{
+    "results":
+    [
+        {
+            "provincia": "Málaga",
+            "comunidad": "Andalucía",
+            "picture": [
+                "resources/img/malaga.jpg",
+                "resources/img/malaga2.jpg",
+                "resources/img/malaga3.jpg"
+            ],
+            "nat": "ES",
+            "info": 
+            {
+                "historia": 
+                [
+                    "Tras la conquista árabe realizada por el hijo de Musa, Abd al-Aziz, Mālaqa (en árabe مالقة) se convirtió en una ciudad floreciente rodeada por un recinto amurallado junto al que se asentaban los barrios de comerciantes genoveses y las juderías. Málaga llegó a ser capital de la taifa hammudí, así como de otros tres efímeros reinos posteriormente. De esta época quedan trazas en el centro histórico y en dos de sus principales monumentos: la Alcazaba y el Castillo de Gibralfaro. Además, contaba con dos arrabales fuera de las murallas El Perchel y la Victoria, un comercio que poseía un discreto radio de acción con Marruecos y una clase media dedicada a la artesanía y al comercio. En esta etapa vivió el filósofo y poeta judío Ibn Gabirol.",
+                    "La toma de la ciudad por los Reyes Católicos en 1487 supuso un episodio sangriento en la guerra final contra el Reino nazarí de Granada. El asedio de la ciudad fue uno de los más largos de la Reconquista, duró seis meses y cortó el suministro de alimentos."
+                ],
+                "geografia":
+                [
+                    "El término municipal de Málaga está representado en la hoja 1053 del Mapa Topográfico Nacional.22​ Limita al norte con los municipios de Almogía, Casabermeja, Colmenar y Comares; al este con El Borge, Moclinejo y Totalán; al oeste con Cártama y Alhaurín de la Torre; al sureste con Rincón de la Victoria y al suroeste con Torremolinos. Al sur se encuentra el mar Mediterráneo.",
+                    "La totalidad del municipio se encuadra dentro de la Cuenca Mediterránea Andaluza. Los cursos de agua son cortos y salvan grandes pendientes, por lo que a menudo provocan torrentes. Los dos mayores son el Guadalhorce y el Guadalmedina, que recogen la mayor parte del agua del municipio."
+                ],
+                "patrimonio":
+                [
+                    "Málaga ha sido declarada Conjunto Histórico, por el conjunto de elementos históricos ubicados en la misma ciudad: fenicios, púnicos, romanos y árabes se concentran en el centro histórico de la ciudad destacando: Teatro Romano, la Alcazaba, la Catedral, entre otros elementos culturales tanto al aire libre como soterrado.",
+                    "Algunos de sus principales monumentos están situados en el monte Gibralfaro y sus inmediaciones. De la época musulmana se conserva el castillo que corona el monte, construido durante el siglo xiv por Yusuf I sobre un anterior recinto de origen fenicio que también contenía un faro que da nombre al cerro (gíbal al-faruh, «monte del faro»)."
+                ],
+                "cultura":
+                [
+                    "Como en casi todos los pueblos y ciudades del Sur de España, en Málaga se celebran anualmente la Navidad, la Semana Santa, la noche de San Juan, el carnaval y las cruces de mayo, además de otras más recientes y de origen foráneo como Halloween, que coincide con la Festividad de Todos los Santos.",
+                    "La Semana Santa en Málaga, con imágenes que se procesionan en tronos llevados a hombros bajo varales, está declarada de interés turístico internacional desde 1965."
+                ]
+            }
+        }
+    ]
+}

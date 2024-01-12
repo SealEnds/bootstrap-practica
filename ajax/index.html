@@ -1,0 +1,172 @@
+<!-- Víctor Pérez Quesada
+    28/11/2023
+
+Consiste en hacer una página web que contiene 8 enlaces correspondientes a cada provincia de Andalucía, colocados de la forma que creas más accesible.
+
+Empleando todo el conocimiento que has adquirido en esta asignatura (y con todo lo que sepas), hacer que cuando se desplace el ratón por encima de cada nombre, se despliegue información relativa a ella.
+
+Se deberás subir todos aquellos archivos que sean necesarios, a menos que estén enlazados a una ubicación en Internet.
+
+CALIFICACIÓN:
+Se tendrá en cuenta la existencia de imágenes en el desplegado de información, lo completo que esté, lo bonito, etc.
+Para alcanzar la máxima nota, se deberá presentar en clase. De no hacerse, sólo puntuará hasta 6.
+-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+
+        function readFile(file, container) {
+            var ProvinciaDownload = () => new Promise((resolve, seject) => {
+                // localización de archivos
+                var path = 'http://localhost/trabajoClase/00-Ajax/Entrega/resources/files/';
+                var api = `${path}${file}.txt`;
+                // petición ajax
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', api);
+                xhr.onload = () => {
+                    if (xhr.status === 200) {
+                        resolve(JSON.parse(xhr.responseText).results);
+                    } else {
+                        reject(Error(xhr.status));
+                    }
+                }
+                xhr.error = (error) => reject(error);
+                xhr.send();
+            });
+
+            function visualizarHTML(req) {
+                let result = $('#resultado');
+                // vaciar anterior
+                result.empty();
+                // añadir información de provincia. Obtener datos de archivos .txt en formato JSON
+                result.append(
+                    `<h2>${req[0].provincia}</h2>
+                    <div>
+                        <div class="img-div">
+                            
+                        </div>
+                        <div>
+                            <section class='historia'>
+                                <h3>Historia</h3>
+                                 
+                            </section>    
+                            <section class='geografia'>
+                                <h3>Geografía</h3>   
+                            </section>    
+                            <section class='patrimonio'>
+                                <h3>Patrimonio</h3>    
+                            </section>    
+                            <section class='cultura'>
+                                <h3>Cultura</h3>  
+                            </section>    
+                        </div>
+                    </div>` 
+                );
+                let img_div = $('.img-div')[0];
+                let historia = $('.historia')[0];
+                let geografia = $('.geografia')[0];
+                let patrimonio = $('.patrimonio')[0];
+                let cultura = $('.cultura')[0];
+                req[0].picture.forEach(element => {
+                    img_div.append($(`<img src="${element}" />`)[0]);
+                }); 
+                req[0].info.historia.forEach(element => {
+                    historia.append($(`<p>${element}</p>`)[0]);
+                }); 
+                req[0].info.geografia.forEach(element => {
+                    geografia.append($(`<p>${element}</p>`)[0]);
+                }); 
+                req[0].info.patrimonio.forEach(element => {
+                    patrimonio.append($(`<p>${element}</p>`)[0]);
+                }); 
+                req[0].info.cultura.forEach(element => {
+                    cultura.append($(`<p>${element}</p>`)[0]);
+                }); 
+            }
+            // lamar promesa que devuelve el archivo
+            ProvinciaDownload()
+                .then(
+                    req => visualizarHTML(req),
+                    error => console.error(
+                        new Error('Se ha producido un error')
+                    )
+                );
+        }
+        // var XHR = false;
+        // XHR = new XMLHttpRequest();
+
+        $(document).ready(function () {
+            // array provincias
+            const provincias = ['Almería', 'Cádiz', 'Córdoba', 'Granada', 'Huelva', 'Jaén', 'Málaga', 'Sevilla'];
+            let provincias_div = $('#provincias-div');
+            // añadir botones provincias
+            provincias.sort().forEach(function (element, index) {
+                provincias_div.append(`<button>${provincias[index]}</button>`);
+            });
+            // para cada botón, comprobar el índice y mandar como parámetro el archivo para leer
+            let provincias_btns = $('button');
+            provincias_btns.each(function (index) {
+                $(this).click(() => {
+                    switch ($(this).text()) {
+                        case provincias[0]:
+                            readFile('almeria', 'resultado');
+                            break;
+                        case provincias[1]:
+                            readFile('cadiz', 'resultado');
+                            break;
+                        case provincias[2]:
+                            readFile('cordoba', 'resultado');
+                            break;
+                        case provincias[3]:
+                            readFile('granada', 'resultado');
+                            break;
+                        case provincias[4]:
+                            readFile('huelva', 'resultado');
+                            break;
+                        case provincias[5]:
+                            readFile('jaen', 'resultado');
+                            break;
+                        case provincias[6]:
+                            readFile('malaga', 'resultado');
+                            break;
+                        case provincias[7]:
+                            readFile('sevilla', 'resultado');
+                            break;
+                        default:
+                            console.log("Error");
+                            break;
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Andalucía
+        </h1>
+    </header>
+    <main>
+        <div id="resultado">
+
+        </div>
+        <aside>
+            <h2 class="title2">Seleccionar Provincia</h2>
+            <div id="provincias-div"></div>
+            <div>
+                <img id="bandera" src="resources/img/bandera.jpg" alt="bandera de andalucía" />
+            </div>
+        </aside>
+    </main>
+</body>
+
+</html>

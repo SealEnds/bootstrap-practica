@@ -1,0 +1,38 @@
+{
+    "results":
+    [
+        {
+            "provincia": "Córdoba",
+            "comunidad": "Andalucía",
+            "picture": [
+                "resources/img/cordoba.jpg",
+                "resources/img/cordoba2.jpg",
+                "resources/img/cordoba3.jpg"
+            ],
+            "nat": "ES",
+            "info": 
+            {
+                "historia": 
+                [
+                    "Fundada en 169 a. C., Córdoba fue capital de la Provincia Hispania Ulterior Baetica (Bética), una época de esplendor, en la que llegó a contar con numerosos edificios lúdicos, proporcionando al mundo latino grandes filósofos como Lucio Anneo Séneca, oradores como Marco Anneo Séneca y poetas como Lucano. Más tarde pudo formar parte de la provincia de Spania del Imperio bizantino, aunque este hecho no está demostrado.",
+                    "Durante el gobierno de Abderramán I, se empezó a erigir la gran mezquita de Córdoba, actualmente revertida a catedral católica y denominada Catedral de Santa María Madre de Dios, (completada en el siglo x) sobre la base de la basílica de San Vicente Mártir, templo compartido por musulmanes y cristianos hasta esa fecha. Los cristianos debieron levantar a partir de entonces su iglesia en las afueras de Córdoba. Igualmente, la ciudad contaba con una famosa universidad y una biblioteca pública que contenía unos 400 000 volúmenes."
+                ],
+                "geografia":
+                [
+                    "El término municipal de Córdoba ocupa 1245 km², aproximadamente el 9 % del total de la provincia.21​ Siendo el núcleo principal de población la zona más poblada, existen seis pedanías: El Higuerón, Alcolea, Santa Cruz, Cerro Muriano, Villarrubia y Santa María de Trassierra y una Entidad Local Menor, Encinarejo, nacidas bien como asentamientos agrarios o bien como núcleos residenciales.",
+                    "El núcleo principal de Córdoba se encuentra situado en los márgenes del río Guadalquivir que la atraviesa de este a oeste formando varios meandros. Al norte del término municipal se encuentra sierra Morena y al sur una extensa campiña. De este modo la altitud del municipio varía entre los 78 metros en la ribera del Guadalquivir y los 692 metros (cerro Torre Árboles) en la sierra de Córdoba, perteneciente a sierra Morena. La ciudad se alza a 123 metros sobre el nivel del mar."
+                ],
+                "patrimonio":
+                [
+                    "Repartidos por toda la ciudad se encuentran los denominados Triunfos de San Rafael, monumentos que muestran la devoción hacia el arcángel Rafael, custodio de la ciudad. La mayoría se encuentran en los accesos de la ciudad como el puente romano (1651) o la puerta del Puente (1781) o en la antigua estación de trenes (1743), puesto que es el patrono de los viajeros. Además, también existían retablos al aire libre, del que actualmente solo se conserva el Altar a San Rafael (1801) de calle Lineros.",
+                    "Jardines del Alcázar: La ciudad dispone de más de 5,1 millones de metros cuadrados de zonas verdes públicas urbanas, lo que arroja un ratio superior a 15 m²/hab. (lo recomendado por la OMS). Si se considera el parque periurbano Los Villares y los Sotos de la Albolafia, la superficie total asciende 10,2 millones de metros cuadrados (31 m²/hab.)."
+                ],
+                "cultura":
+                [
+                    "El Museo Arqueológico y Etnológico de Córdoba es uno de los más completos de España, con piezas que abarcan desde la Prehistoria hasta la Edad Media.138​ Bajo el palacio de los Páez de Castillejo, donde se encuentra el museo, se encuentran los restos del teatro romano, el mayor de la Hispania romana y uno de los mayores del Imperio romano.",
+                    "Como platos típicos de la gastronomía Cordobesa podemos resaltar el salmorejo, los flamenquines, el rabo de toro, el cordero a la miel, las naranjas picadas o las alcachofas a la montillana y como postre más típico podemos destacar el pastel cordobés, consiste en una masa de hojaldre rellena de cidra confitada llamada cabello de ángel."
+                ]
+            }
+        }
+    ]
+}

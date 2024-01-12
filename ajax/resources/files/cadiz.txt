@@ -1,0 +1,38 @@
+{
+    "results":
+    [
+        {
+            "provincia": "Cádiz",
+            "comunidad": "Andalucía",
+            "picture": [
+                "resources/img/cadiz.jpg",
+                "resources/img/cadiz2.jpg",
+                "resources/img/cadiz3.jpg"
+            ],
+            "nat": "ES",
+            "info": 
+            {
+                "historia": 
+                [
+                    "La historia de Cádiz es la propia de una ciudad marcada por su estratégica situación militar y comercial, a caballo entre el océano Atlántico y el mar Mediterráneo. Se trata de uno de los asentamientos fenicios más antiguos de occidente.17​ Desde su fundación por los tirios, según la tradición clásica ochenta años después de la guerra de Troya (1104 a. C.), 17​26​ fue una ciudad volcada al mar y al comercio.",
+                    "La ciudad fue conquistada por los bizantinos en el año 522, por los visigodos en el 620 y de nuevo conquistada por las tropas de Tariq Ibn Ziyad en el 711, tras la batalla del Guadalete. Durante esa época es demolida la estatua de Hércules, en el templo de Hércules."
+                ],
+                "geografia":
+                [
+                    "La ciudad de Cádiz se sitúa en lo que se llama, geográficamente, un tómbolo.40​41​42​ Se denomina así cuando se une una isla al continente por un istmo muy fino. En el caso particular de Cádiz, este tómbolo no se une directamente con el continente, sino con lo que se ha llamado históricamente la Isla de León, donde se encuentra la ciudad de San Fernando.",
+                    "El 66,91 % del suelo, entre marismas (pertenecientes al parque natural de la Bahía de Cádiz) y playas, es no urbanizable.3​ La totalidad del suelo urbanizable, 4,4 km², se encuentra ocupado."
+                ],
+                "patrimonio":
+                [
+                    "La puerta de Tierra es un monumento arquitectónico que supone un reducto de la que fuera muralla de entrada a la ciudad de Cádiz. Levantada por el arquitecto academicista Torcuato Cayón en el siglo xviii, la portada está labrada en mármol, concebida más como retablo religioso que como fortificación militar.",
+                    "La factoría de salazones se encuentra en el centro de Cádiz, en lo que fue el antiguo canal que dividía la ciudad en dos islas. Según los datos, situamos su construcción en el siglo i a. C. y su posterior abandono a principios del siglo v d. C."
+                ],
+                "cultura":
+                [
+                    "La festividad de la Semana Santa tiene mucho seguimiento en la ciudad, al igual que el resto de la provincia. Pero la fiesta más seguida y turística, de interés cultural, es el Carnaval. La ciudad también celebra el día de la Patrona, Nuestra Señora del Rosario, el día de Todos los Santos conocido como los tosantos (celebrado vistiendo animales​) y, como en toda España, el Corpus Christi.",
+                    "La gastronomía típica de Cádiz incluye guisos y dulces típicos de la comarca y propios de la ciudad. Al igual que en toda Andalucía, destacan las tapas. Destacan los productos del mar como el pescaíto frito (que consiste en freír un variado de pescado enharinado en abundante aceite de oliva que se consume durante todo el año.), el bienmesabe o cazón en adobo, el marisco (cocido, a la plancha o frito), la morena en adobo, las tortillita de camarones, la caballa asada, etcétera. En especial, entre los mariscos, destacan las cigalas, las coquinas, los muergos (o navajas), las cañaillas, el bogavante, los berberechos, las gambas, el centollo, los camarones y los langostinos."
+                ]
+            }
+        }
+    ]
+}

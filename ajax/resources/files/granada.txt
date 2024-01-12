@@ -1,0 +1,38 @@
+{
+    "results":
+    [
+        {
+            "provincia": "Granada",
+            "comunidad": "Andalucía",
+            "picture": [
+                "resources/img/granada.jpg",
+                "resources/img/granada2.jpg",
+                "resources/img/granada3.jpg"
+            ],
+            "nat": "ES",
+            "info": 
+            {
+                "historia": 
+                [
+                    "Los restos más antiguos que se han excavado en la ciudad de Granada se han datado hacia la mitad del s. vii a. C. y corresponden a habitaciones pertenecientes a un oppidum íbero denominado Ilturir.",
+                    "Época nazarí.- La creación del Reino de Granada impulsó el crecimiento y la riqueza de la ciudad, amurallándose los arrabales del Albaicín y levantándose la ciudad palatina de la Alhambra. Su construcción se inició por el rey Alhamar, aprovechando la existencia de una antigua fortaleza zirí. Su hijo, Muhámmad II, erigió la mayor parte de las zonas palaciegas, y para el comienzo del siglo xiv existía ya una medina, con comercios, viviendas privadas y edificios comunitarios. La mezquita real (megit sultani) fue edificada por Muhámmad III y, para entonces, Madínat al-Hamra era ya un verdadero núcleo urbano.53​ La ciudad nazarí quedó organizada en seis distritos amurallados, comunicados entre sí por puertas que se cerraban durante la noche, y cada uno de ellos dividido en barrios de diferentes tamaños y carácter."
+                ],
+                "geografia":
+                [
+                    "l término municipal está situado en la parte más oriental de la depresión de Granada, en contacto con el piedemonte de Sierra Nevada (formación de unos 87,8 km²).23​ Se encuentra representado en las hojas 1009, 1010, 1026 y 1027 del Mapa Topográfico Nacional. La depresión se sitúa estratégicamente en el Surco Intrabético.",
+                    "De esta forma, a partir del pasillo de Iznalloz tiene acceso al desfiladero de Despeñaperros, que comunica a la región de Andalucía con el centro de la península ibérica; a partir de Valle de Lecrín tiene acceso a la Costa Granadina; por el Puerto de la Mora tiene acceso a las Hoyas de Guadix y Baza y por lo tanto a Almería y Murcia; y por último, a partir del pasillo de Loja tiene acceso a Málaga."
+                ],
+                "patrimonio":
+                [
+                    "La mayor riqueza artística de Granada es el arte hispanomusulmán y, en especial, la ciudad palatina de la Alhambra y el Generalife, este último un palacio de recreo con un jardín de planta actualmente romántica, destacable tanto por su emplazamiento y disposición como por la diversidad de flores, plantas y juegos de agua. La Alhambra es la culminación del arte nazarí, obra que se realizó en los siglos xiii y xiv, correspondiendo la mayor parte de lo edificado a la época de Yusuf I y Mohamed V, entre 1333 y 1354.",
+                    "La Alhambra, la ciudad palatina nazarí declarada Patrimonio de la Humanidad por la Unesco en 1984 es, sin duda, el monumento más emblemático de Granada. Consta de una zona defensiva, la Alcazaba; otra de carácter residencial y representativo, los Palacios Nazaríes; y una última de ocio, el Generalife, que consta de palacio, jardines y huertas."
+                ],
+                "cultura":
+                [
+                    "Como sucede en otras capitales, la Semana Santa en Granada se convierte en uno de sus acontecimientos religioso-culturales y artísticos más relevantes. Se trata de manifestaciones populares religiosas que se remontan al siglo xviii, cuando hubo una proliferación masiva de cofradías gremiales, en su gran mayoría, al igual que en otros puntos de España.",
+                    "La gastronomía de Granada se inscribe en la tradición de la cocina arabigoandaluza, con una fuerte herencia árabe y judía, que se refleja en sus condimentos y especias, como comino, cilantro, nuez moscada, canela, pasas, almendras o miel. El escritor Miguel Alcobendas, autor de La cocina tradicional de Granada, dice que tiene su origen en la convivencia, desde el siglo xii al xv (en que Granada se rindió a los Reyes Católicos), de musulmanes, judíos y cristianos en el Reino Nazarí de Granada. Posteriormente hubo un mestizaje con la cocina de los cristianos, en el que la carne de cerdo adquirió una importancia en la cocina granadina incluso mayor que en el resto de España, dado que su consumo permitía manifestar cierta distancia con las religiones perseguidas, ya que tanto musulmanes como judíos lo tienen vetado."
+                ]
+            }
+        }
+    ]
+}

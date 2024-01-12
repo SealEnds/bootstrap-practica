@@ -1,0 +1,38 @@
+{
+    "results":
+    [
+        {
+            "provincia": "Huelva",
+            "comunidad": "Andalucía",
+            "picture": [
+                "resources/img/huelva.jpg",
+                "resources/img/huelva2.jpg",
+                "resources/img/huelva3.jpg"
+            ],
+            "nat": "ES",
+            "info": 
+            {
+                "historia": 
+                [
+                    "Desde el mítico reino tartesio de Argantonio hasta el Imperio romano, la colonización vandálica y visigoda o el asentamiento de culturas como la árabe dieron esplendor al sur peninsular y convirtieron la provincia de Huelva en un auténtico crisol en el que se funde lo que hoy es la realidad andaluza.",
+                    "Ha sido frecuente relacionar la onubense Isla de Saltés con la capital de Tartesios. Así lo hizo, en su Ora Marítima,​ el poeta romano Rufo Festo Avieno en el siglo iv cuando podría referirse a ella como la «isla entre dos ríos». Anteriormente, Estrabón (III,5,5) hablaba de los viajes de los marineros fenicios a la zona desde el siglo viii a. C. Lo cierto es que entre la leyenda y la referencia bíblica —el Tarschish de El libro de los Reyes—, Tartesios contacta con el mundo griego a mediados del siglo vii a. C."
+                ],
+                "geografia":
+                [
+                    "Huelva se encuentra localizada en una pequeña península en la confluencia de los ríos Tinto y Odiel, en la llamada tierra llana perteneciendo a la cuenca del Guadiana. Está ubicada a escasos kilómetros del mismo, del que lo separan una ría y varias islas. Los dos ríos se fusionan en el punto conocido como Punta del Sebo (o Península de Huelva o Anicoba). El centro de la ciudad está situado a 24 metros de altitud,1​ mientras que la altitud del municipio varía desde el nivel del mar hasta los 68 metros en el Conquero, situado prácticamente en la zona urbana.",
+                    "El término municipal de Huelva se sitúa en la denominada como zona de la tierra llana o gran llanura litoral perteneciente a la Depresión Bética en zona donde abundan formaciones de marismas, caños, lagunas, esteros, junto a zonas de arenas."
+                ],
+                "patrimonio":
+                [
+                    "Quizá, el monumento más reconocible de la ciudad aunque se encuentre en las afueras es el Monumento a Colón, en la Punta del Sebo, que conmemora a Cristóbal Colón y los personajes y marinos que hicieron posible la hazaña del Descubrimiento de América que partieron del cercano puerto de Palos de la Frontera.",
+                    "Otros lugares de interés de la ciudad son el Muelle de las Canoas, que enlaza por barco con la localidad de Punta Umbría y donde se encuentra el colosal monumento al nudo marinero, de diez metros de altura situado a la entrada del muelle. Justo a la entrada del muelle se encuentran dos edificios del puerto de Huelva de los años 1930 que están declarados Bien de Interés Cultural."
+                ],
+                "cultura":
+                [
+                    "Las principales fiestas religiosas locales son en septiembre y enero. Las Fiestas de la Cinta (8 de septiembre) están declaradas de interés turístico nacional y dedicadas a la patrona de la ciudad: Nuestra Señora de la Cinta. Se completan con las Fiestas Patronales de San Sebastián, dedicadas al patrón de la ciudad (20 de enero) declaradas también de interés turístico nacional. Otras festividades religiosas en la ciudad son la Semana Santa, de interés turístico nacional, las salidas hacia Romería del Rocío de las hermandades de Emigrantes y de Huelva para presentar su devoción y sacarla en procesión el lunes por la mañana o las Cruces de mayo, en algunas barriadas (durante todo el mes de mayo). Religiosamente el año culmina con la Procesión de la Purísima Inmaculada.",
+                    "Muy mediatizada por las inmensas posibilidades de la provincia, la gastronomía de la capital se fundamenta tanto en los productos procedentes de la sierra como en los del mar, en las carnes y el jamón ibérico​ y el marisco y el pescado de la costa onubense."
+                ]
+            }
+        }
+    ]
+}

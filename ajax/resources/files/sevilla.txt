@@ -1,0 +1,38 @@
+{
+    "results":
+    [
+        {
+            "provincia": "Sevilla",
+            "comunidad": "Andalucía",
+            "picture": [
+                "resources/img/sevilla.jpg",
+                "resources/img/sevilla2.jpg",
+                "resources/img/sevilla3.jpg"
+            ],
+            "nat": "ES",
+            "info": 
+            {
+                "historia": 
+                [
+                    "A mediados del siglo i a. C., Híspalis tenía muralla y foro, con actividad mercantil portuaria, consolidándose su expansión urbanística y la definición funcional de sus sectores hacia mediados del siglo i d. C.76​ Con la reorganización imperial, la joven urbe sería capital de uno de los cuatro conventus iuridici de la Baetica, provincia senatorial cuya capital era Corduba. En la zona en torno a la actual calle Mármoles se localizaba el foro de la época imperial romana,77​ destacando especialmente en la ciudad altoimperial los sectores urbanos destinados a las actividades portuarias y comerciales.",
+                    "Durante el reino visigodo alojó en algunas ocasiones a la corte. En al-Ándalus, tras la invasión musulmana, fue primero sede de una cora y después capital de un reino de taifas, hasta llegar a convertirse en la capital del al-Ándalus almohade. En el año 844 fue saqueada por los vikingos que remontaron el río Guadalquivir, lo que provocó que el emir de Córdoba fortaleciese su sistema defensivo, pero en 859 los vikingos consiguieron entrar de nuevo."
+                ],
+                "geografia":
+                [
+                    "El término municipal de Sevilla se encuentra ubicado en la provincia de Sevilla, perteneciente a la comunidad autónoma de Andalucía, en el sur de la península ibérica, en la margen izquierda del río Guadalquivir; sin embargo, sus barrios Triana y Los Remedios ocupan el lado derecho de este río navegable que convierte a esta ciudad en puerto fluvial. En el entorno de Sevilla hay una rica vega, así como áreas de campiña y de tierras marismeñas​ y dos zonas elevadas que conforman la comarca del Aljarafe, muy vinculada con la ciudad por ser la zona de expansión residencial de Sevilla, al oeste, y los Alcores, al este.",
+                    "El término municipal de Sevilla, de 140,8 km² de extensión, está representado en las hojas 984, 985​ y 100240​ del Mapa Topográfico Nacional. Limita al norte con La Rinconada, La Algaba y Santiponce; al este con Carmona y Alcalá de Guadaíra; al sur con Dos Hermanas y Gelves y por el oeste, San Juan de Aznalfarache, Tomares y Camas."
+                ],
+                "patrimonio":
+                [
+                    "En la arquitectura de Sevilla han dejado constancia las civilizaciones que han habitado la ciudad, con una riqueza monumental muy importante, tanto en edificios religiosos como civiles, con influencias de romanos, visigodos, árabes, movimientos europeos, racionalismo, modernismo y regionalismo historicista andaluz. En el patrimonio histórico-artístico de la ciudad pueden observarse varios estilos como gótico, mudéjar, renacentista, barroco, neoclasicismo, romanticismo, etc.",
+                    "Sevilla es una de las ciudades con más monumentos catalogados en Europa, lo que la hace destacar de una forma notable en este aspecto. Entre sus monumentos destacan la «Catedral, la Giralda, el Alcázar y el Archivo de Indias», que fueron declarados Patrimonio de la Humanidad por la Unesco en 1987,19​ así como la «Torre del Oro o la Plaza de España», que son candidatas a obtener dicho reconocimiento desde finales del año 2013. Posee uno de los centros históricos más extensos de España, con unas 335 hectáreas. Igualmente destacable es su casco antiguo, el más extenso de España y uno de los tres más grandes de toda Europa junto a los de Venecia y Génova, con 3,94 km²."
+                ],
+                "cultura":
+                [
+                    "La celebración de los distintos actos que tienen lugar durante la Semana Santa se convierten en uno de los acontecimientos culturales, religiosos y artísticos más importantes que se producen en la ciudad. Las celebraciones de la Semana Santa de esta ciudad son de las más famosas de España y tienen una resonancia internacional en el mundo católico, por lo cual son un importante foco de atracción turística.",
+                    "La Feria de Abril es una fiesta popular que tiene lugar en Sevilla en primavera, casi siempre en el mes de abril. La Feria se desarrolla en el barrio de Los Remedios y está considerada como Fiesta de Interés Turístico de ámbito Nacional, y desde 1965, como Internacional."
+                ]
+            }
+        }
+    ]
+}

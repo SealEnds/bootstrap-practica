@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "fjalla";
+    src: url("resources/fonts/FjallaOne-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: rgb(36, 36, 36);
+    color: whitesmoke;
+    font-family: 'fjalla', 'Times New Roman', Times, serif;
+
+    header {
+        h1 {
+            width: 100%;
+            text-align: center;
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            cursor: pointer;
+            color: #fff;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            background-color: #017932;
+            border: none;
+            letter-spacing: 5px;
+            font-weight: bold;
+        }
+    }
+    main {
+        display: flex;
+        flex-flow: row wrap;
+        .btn {
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+            background-color: cadetblue;
+            border: none;
+            color: white;
+            &:hover {
+                background-color: #2d5153;
+            }
+        }
+        #resultado {
+            width: 70%;
+            margin-left: 2%;
+            background-color: #2d5153;
+            text-align: center;
+            h2 {
+                font-size: 40px;
+                margin-top: 30px;
+                margin-bottom: 20px;
+            }
+            div {
+                display: flex;
+                flex-flow: row wrap;
+                div {
+                    display: flex;
+                    flex-flow: column wrap;
+                    width: 48%;
+                    padding-bottom: 40px;
+                    img {
+                        width: 70%;
+                        display: block;
+                        margin: auto;
+                    }
+                    section {
+                        text-align: left;
+                        margin-top: 16px;
+                        h3 {
+                            margin-bottom: 5px;
+                            color: #fff458;
+                            font-size: 24px;
+                        }
+                        p {
+                            font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                            margin-bottom: 20px;
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        aside {
+            position: fixed;
+            left: 75%;
+            width: 20%;
+            h2 {
+                text-align: center;
+                margin: auto;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #ccc;
+            }
+            #provincias-div {
+                display: flex;
+                flex-flow: column wrap;
+                gap: 10px;
+                & > button {
+                    padding: 8px;
+                    cursor: pointer;
+                    background-color: white;
+                    border: 3px #ecbcbc inset;
+                    &:hover {
+                        background-color: #ecfadf;
+                        border: 3px #29cc1b inset;
+                        transition: 500ms all;
+                    }
+                }
+            }
+            #bandera {
+                width: 70%;
+                display: block;
+                margin: auto;
+                margin-top: 30px;
+            }
+        }
+    }
+}
