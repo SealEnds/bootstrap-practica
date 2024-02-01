@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family:  'Helvetica Neue', 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Droid Sans',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: radial-gradient(rgb(186, 254, 161), rgb(229, 250, 210));
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#main h1 {
+  margin-left: 15%;
+  color: #FF6347;
+  text-transform: uppercase;
+  font-size: 48px;
+  letter-spacing: 10px;
+  text-shadow: 2px 2px 4px #FF6347, 2px 2px 1px rgb(0, 0, 0),  3px 3px 5px rgb(86, 86, 86);
+}
+
+.center {
+  width: 90%;
+  margin: auto;
+}
+
+#main section {
+  display: inline-flex;
+  flex-flow: row wrap;
+  flex-basis: auto;
+}
+
+.fruta {
+  background-color: white;
+  border: 1px solid rgb(217, 136, 136);
+  min-width: 300px;
+  max-width: 380px;
+  padding: 10px;
+  margin-bottom: 10px;
+  flex-basis: auto;
+  flex: 1;
+}
+
+h2 {
+  text-align: center;
+}
+
+img {
+  max-width: 300px;
+  margin-top: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: tomato;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  width: 20%;
+  margin-top: 15px;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+  transform: scale(1.5); 
+  margin-top: 10px;
+}
+
+.div_cantidad_step, .div_precio_step {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+label {
+  padding-top: 9px;
+}
+
+.value {
+  color: #FF6347;
+  font-weight: bold;
+}
