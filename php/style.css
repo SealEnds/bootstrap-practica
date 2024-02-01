@@ -1,0 +1,176 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face{
+    font-family: "nevis";
+    src: url("fonts/nevis.eot"); 
+    src: url("fonts/nevis.eot?#iesfix") format("embedded-opentype"),
+    url("fonts/nevis.woff") format("woff"),
+    url("fonts/nevis.ttf") format("truetype"),
+    url("fonts/nevis.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: rgb(36, 36, 36);
+    color: whitesmoke;
+    font-family: 'nevis', 'Times New Roman', Times, serif;
+}
+
+.clearfix {
+    clear: both;
+}
+
+#inicio {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: cadetblue;
+    border: none;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+h2 {
+    text-align: center;
+}
+.title2 {
+    margin: auto;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    width: 75%;
+}
+#main {
+    display: flex;
+    flex-flow: row-reverse wrap;
+}
+
+#gestion {
+    width: 24%;
+}
+
+#resultado {
+    width: 75%;
+    padding-left: 1%;
+}
+.pelicula {
+    float: left;
+    width: 33%;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+.pelicula > p,
+.pelicula > h2,
+.pelicula > img {
+    padding: 10px;
+}
+.img {
+    display: block;
+    width: inherit;
+    max-height: 200px;
+    margin: auto;
+}
+.color {
+    color: #deecab;
+}
+.pelicula .borrar {
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.btn {
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+}
+#gestion > p{
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+}
+#gestion > p > label{
+    display: block;
+    text-align: left;
+}
+#gestion > button {
+    margin-left: 10%;
+}
+#gestion input {
+    padding: 5px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    outline: none;
+}
+#gestion #buscar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+#gestion #buscar #buscar-valor {
+    background-color: whitesmoke;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+#gestion input:focus {
+    background-color: rgb(212, 234, 236);
+    transition: 300ms all;
+}
+#buscar-valor:focus {
+    background-color: rgb(212, 234, 236) !important;
+    transition: 300ms all;
+}
+.btn {
+    background-color: cadetblue;
+    border: none;
+    color: white;
+}
+.btn:hover {
+    background-color: #2d5153;
+}
+#gestion #buscar #buscar-btn {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#gestion #add {
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#gestion input[type="submit"] {
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+    background-color: whitesmoke;
+    color: #2d5153;
+    border: none;
+    cursor: pointer;
+}
+#gestion input[type="submit"]:hover {
+    background-color: #2d5153;
+    color: whitesmoke;
+    transition: 300ms all;
+}
